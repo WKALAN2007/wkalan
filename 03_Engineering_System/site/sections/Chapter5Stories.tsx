@@ -1,17 +1,16 @@
 "use client";
 
-import { useRef } from "react";
 import { motion } from "framer-motion";
 
 const stories = [
   {
     name: "Akira Mori",
-    video: "/website-preview.mov",
+    banner: "/mori-portrait.jpg",
     href: "/mori",
   },
   {
     name: "NKSEN",
-    video: "/website-preview.mov",
+    banner: "/fashion/hero.jpg",
     href: "/fashion",
   },
 ];
@@ -23,33 +22,12 @@ function StoryCard({
   story: (typeof stories)[0];
   index: number;
 }) {
-  const videoRef = useRef<HTMLVideoElement>(null);
-
-  const handleEnter = () => {
-    const v = videoRef.current;
-    if (v) {
-      v.currentTime = 0;
-      v.play().catch(() => {});
-    }
-  };
-
-  const handleLeave = () => {
-    const v = videoRef.current;
-    if (v) {
-      v.pause();
-      v.currentTime = 0;
-    }
-  };
-
   return (
     <motion.a
-      key={story.name}
       href={story.href}
       target="_blank"
       rel="noopener noreferrer"
       className="group relative flex flex-col overflow-hidden border border-[var(--color-border)] bg-[#1A1A18]"
-      onMouseEnter={handleEnter}
-      onMouseLeave={handleLeave}
       variants={{
         hidden: { opacity: 0, y: 32, scale: 0.97 },
         visible: {
@@ -60,20 +38,28 @@ function StoryCard({
         },
       }}
     >
-      {/* Video — invisible until hover */}
+      {/* Banner container */}
       <div className="relative aspect-[16/10] overflow-hidden bg-[#1A1A18]">
-        <video
-          ref={videoRef}
-          src={story.video}
-          muted
-          loop
-          playsInline
-          preload="metadata"
-          className="absolute inset-0 h-full w-full object-cover opacity-0 transition-opacity duration-500 group-hover:opacity-100"
+        {/* The image — 2x container height, scrolls on hover */}
+        <img
+          src={story.banner}
+          alt={story.name}
+          className="absolute inset-x-0 top-0 w-full object-cover"
+          style={{
+            height: "200%",
+            objectPosition: "0% 0%",
+            transition: "object-position 4s ease-in-out",
+          }}
+          onMouseEnter={(e) => {
+            (e.target as HTMLImageElement).style.objectPosition = "0% 100%";
+          }}
+          onMouseLeave={(e) => {
+            (e.target as HTMLImageElement).style.objectPosition = "0% 0%";
+          }}
         />
 
-        {/* Name — always visible at bottom */}
-        <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent p-6 pt-16">
+        {/* Gradient + name overlay at bottom */}
+        <div className="pointer-events-none absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent p-6 pt-16">
           <h3 className="font-heading text-xl text-white/80 transition-colors group-hover:text-white sm:text-2xl">
             {story.name}
           </h3>
