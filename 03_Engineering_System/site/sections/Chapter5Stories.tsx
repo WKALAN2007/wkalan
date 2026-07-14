@@ -4,11 +4,6 @@ import { motion } from "framer-motion";
 
 const stories = [
   {
-    name: "小白剪了個球",
-    description: "Bilibili 创作者。30万+ 粉丝。从内容创作者到被记住的人。",
-    href: "/basketball",
-  },
-  {
     name: "Akira Mori",
     description: "紀錄片攝影師。不是展示作品，而是讓你慢慢認識一個人——他的眼睛、他的沉默、他選擇看見什麼。",
     href: "/mori",
