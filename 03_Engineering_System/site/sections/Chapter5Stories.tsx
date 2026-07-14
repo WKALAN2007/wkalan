@@ -1,19 +1,87 @@
 "use client";
 
+import { useRef } from "react";
 import { motion } from "framer-motion";
 
 const stories = [
   {
     name: "Akira Mori",
-    banner: "/mori-portrait.jpg",
+    video: "/website-preview.mov",
     href: "/mori",
   },
   {
     name: "NKSEN",
-    banner: "/fashion/hero.jpg",
+    video: "/website-preview.mov",
     href: "/fashion",
   },
 ];
+
+function StoryCard({
+  story,
+  index,
+}: {
+  story: (typeof stories)[0];
+  index: number;
+}) {
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  const handleEnter = () => {
+    const v = videoRef.current;
+    if (v) {
+      v.currentTime = 0;
+      v.play().catch(() => {});
+    }
+  };
+
+  const handleLeave = () => {
+    const v = videoRef.current;
+    if (v) {
+      v.pause();
+      v.currentTime = 0;
+    }
+  };
+
+  return (
+    <motion.a
+      key={story.name}
+      href={story.href}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="group relative flex flex-col overflow-hidden border border-[var(--color-border)] bg-[#1A1A18]"
+      onMouseEnter={handleEnter}
+      onMouseLeave={handleLeave}
+      variants={{
+        hidden: { opacity: 0, y: 32, scale: 0.97 },
+        visible: {
+          opacity: 1,
+          y: 0,
+          scale: 1,
+          transition: { duration: 0.7, delay: 0.3 + 0.15 * index, ease: [0.16, 1, 0.3, 1] },
+        },
+      }}
+    >
+      {/* Video — invisible until hover */}
+      <div className="relative aspect-[16/10] overflow-hidden bg-[#1A1A18]">
+        <video
+          ref={videoRef}
+          src={story.video}
+          muted
+          loop
+          playsInline
+          preload="metadata"
+          className="absolute inset-0 h-full w-full object-cover opacity-0 transition-opacity duration-500 group-hover:opacity-100"
+        />
+
+        {/* Name — always visible at bottom */}
+        <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent p-6 pt-16">
+          <h3 className="font-heading text-xl text-white/80 transition-colors group-hover:text-white sm:text-2xl">
+            {story.name}
+          </h3>
+        </div>
+      </div>
+    </motion.a>
+  );
+}
 
 export function Chapter5Stories() {
   return (
@@ -51,40 +119,7 @@ export function Chapter5Stories() {
 
           <div className="grid gap-6 sm:grid-cols-2">
             {stories.map((story, i) => (
-              <motion.a
-                key={story.name}
-                href={story.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group relative flex flex-col overflow-hidden border border-[var(--color-border)] bg-[var(--color-background)] transition-all duration-500 hover:shadow-[var(--shadow-lg)]"
-                variants={{
-                  hidden: { opacity: 0, y: 32, scale: 0.97 },
-                  visible: {
-                    opacity: 1,
-                    y: 0,
-                    scale: 1,
-                    transition: { duration: 0.7, delay: 0.3 + 0.15 * i, ease: [0.16, 1, 0.3, 1] },
-                  },
-                }}
-              >
-                {/* Banner image — full width */}
-                <div className="relative aspect-[16/10] overflow-hidden bg-[#E8E4DC]">
-                  <img
-                    src={story.banner}
-                    alt={story.name}
-                    className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.03]"
-                  />
-                  {/* subtle gradient at bottom for name overlay */}
-                  <div className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-black/50 to-transparent" />
-                </div>
-
-                {/* Name overlaid at bottom of image */}
-                <div className="absolute inset-x-0 bottom-0 p-6">
-                  <h3 className="font-heading text-xl text-white/90 transition-colors group-hover:text-white sm:text-2xl">
-                    {story.name}
-                  </h3>
-                </div>
-              </motion.a>
+              <StoryCard key={story.name} story={story} index={i} />
             ))}
           </div>
         </motion.div>
