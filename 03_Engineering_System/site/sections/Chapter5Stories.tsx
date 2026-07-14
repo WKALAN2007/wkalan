@@ -5,12 +5,12 @@ import { motion } from "framer-motion";
 const stories = [
   {
     name: "Akira Mori",
-    description: "紀錄片攝影師。不是展示作品，而是讓你慢慢認識一個人——他的眼睛、他的沉默、他選擇看見什麼。",
+    banner: "/mori-portrait.jpg",
     href: "/mori",
   },
   {
     name: "NKSEN",
-    description: "一个时装品牌的数字身份。安静、编辑感、让衣服自己说话。",
+    banner: "/fashion/hero.jpg",
     href: "/fashion",
   },
 ];
@@ -49,14 +49,14 @@ export function Chapter5Stories() {
             Stories We&apos;ve Crafted.
           </motion.h2>
 
-          <div className="grid gap-8 sm:grid-cols-2">
+          <div className="grid gap-6 sm:grid-cols-2">
             {stories.map((story, i) => (
               <motion.a
                 key={story.name}
                 href={story.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group block border border-[var(--color-border)] bg-[var(--color-background)] p-8 transition-all duration-500 hover:border-[var(--color-accent)]/30 hover:shadow-[var(--shadow-lg)]"
+                className="group relative flex flex-col overflow-hidden border border-[var(--color-border)] bg-[var(--color-background)] transition-all duration-500 hover:shadow-[var(--shadow-lg)]"
                 variants={{
                   hidden: { opacity: 0, y: 32, scale: 0.97 },
                   visible: {
@@ -67,15 +67,23 @@ export function Chapter5Stories() {
                   },
                 }}
               >
-                <h3 className="font-heading text-2xl text-[var(--color-text-primary)] transition-colors group-hover:text-[var(--color-accent)]">
-                  {story.name}
-                </h3>
-                <p className="mt-3 text-sm leading-relaxed text-[var(--color-text-secondary)]">
-                  {story.description}
-                </p>
-                <span className="mt-6 inline-flex items-center gap-1 text-xs font-medium uppercase tracking-[0.15em] text-[var(--color-accent)] transition-all group-hover:gap-2">
-                  View Project <span>&rarr;</span>
-                </span>
+                {/* Banner image — full width */}
+                <div className="relative aspect-[16/10] overflow-hidden bg-[#E8E4DC]">
+                  <img
+                    src={story.banner}
+                    alt={story.name}
+                    className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.03]"
+                  />
+                  {/* subtle gradient at bottom for name overlay */}
+                  <div className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-black/50 to-transparent" />
+                </div>
+
+                {/* Name overlaid at bottom of image */}
+                <div className="absolute inset-x-0 bottom-0 p-6">
+                  <h3 className="font-heading text-xl text-white/90 transition-colors group-hover:text-white sm:text-2xl">
+                    {story.name}
+                  </h3>
+                </div>
               </motion.a>
             ))}
           </div>
