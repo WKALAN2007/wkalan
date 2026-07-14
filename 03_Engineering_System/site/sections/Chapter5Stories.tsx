@@ -40,21 +40,21 @@ function StoryCard({
     >
       {/* Banner container */}
       <div className="relative aspect-[16/10] overflow-hidden bg-[#1A1A18]">
-        {/* The image — 2x container height, scrolls on hover */}
+        {/* The image — 2x container width, scrolls right-to-left on hover */}
         <img
           src={story.banner}
           alt={story.name}
-          className="absolute inset-x-0 top-0 w-full object-cover"
+          className="absolute inset-y-0 right-0 h-full object-cover"
           style={{
-            height: "200%",
-            objectPosition: "0% 0%",
+            width: "200%",
+            objectPosition: "100% 50%",
             transition: "object-position 4s ease-in-out",
           }}
           onMouseEnter={(e) => {
-            (e.target as HTMLImageElement).style.objectPosition = "0% 100%";
+            (e.target as HTMLImageElement).style.objectPosition = "0% 50%";
           }}
           onMouseLeave={(e) => {
-            (e.target as HTMLImageElement).style.objectPosition = "0% 0%";
+            (e.target as HTMLImageElement).style.objectPosition = "100% 50%";
           }}
         />
 
