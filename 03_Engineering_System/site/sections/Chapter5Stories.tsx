@@ -9,6 +9,11 @@ const stories = [
     href: "/basketball",
   },
   {
+    name: "Akira Mori",
+    description: "紀錄片攝影師。不是展示作品，而是讓你慢慢認識一個人——他的眼睛、他的沉默、他選擇看見什麼。",
+    href: "/mori",
+  },
+  {
     name: "NKSEN",
     description: "一个时装品牌的数字身份。安静、编辑感、让衣服自己说话。",
     href: "/fashion",
