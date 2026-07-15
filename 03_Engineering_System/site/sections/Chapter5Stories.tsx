@@ -250,7 +250,7 @@ function StoryCard({
       rel="noopener noreferrer"
       className="group relative flex-shrink-0 flex flex-col overflow-hidden border border-[var(--color-border)] bg-[#1A1A18]"
       style={{
-        width: "clamp(340px, 42vw, 520px)",
+        width: "clamp(260px, 30vw, 380px)",
         borderRadius: "var(--radius-lg)",
         scale: hoverScale,
         borderColor: hovered
@@ -276,7 +276,7 @@ function StoryCard({
         /* ── Text-only card (no banner) ── */
         <div className="flex aspect-[16/10] items-center justify-center bg-[#1A1A18]">
           <motion.h3
-            className="font-heading text-xl sm:text-2xl"
+            className="font-heading text-lg sm:text-xl"
             animate={{
               color: hovered
                 ? isWarm
@@ -335,7 +335,7 @@ function StoryCard({
 
           <div className="pointer-events-none absolute inset-x-0 bottom-0 z-[3] bg-gradient-to-t from-black/70 via-black/30 to-transparent p-6 pt-16">
             <motion.h3
-              className="font-heading text-xl sm:text-2xl"
+              className="font-heading text-lg sm:text-xl"
               animate={{
                 color: hovered
                   ? isWarm
@@ -462,7 +462,7 @@ export function Chapter5Stories() {
         {/* The scrolling track — CSS animation, paused on hover */}
         <div
           ref={trackRef}
-          className="flex gap-8"
+          className="flex gap-5"
           style={{
             width: "max-content",
             animation: `auto-scroll 45s linear infinite`,
@@ -474,9 +474,9 @@ export function Chapter5Stories() {
         </div>
 
         {/* ── Reverse track ── */}
-        <div className="mt-8">
+        <div className="mt-5">
           <div
-            className="flex gap-8"
+            className="flex gap-5"
             style={{
               width: "max-content",
               animation: `auto-scroll-reverse 45s linear infinite`,
