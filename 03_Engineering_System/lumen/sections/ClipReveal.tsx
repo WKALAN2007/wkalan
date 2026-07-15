@@ -7,9 +7,10 @@ interface ClipRevealProps {
   children: ReactNode;
   direction?: "up" | "down" | "left" | "right";
   className?: string;
+  style?: React.CSSProperties;
 }
 
-export function ClipReveal({ children, direction = "up", className = "" }: ClipRevealProps) {
+export function ClipReveal({ children, direction = "up", className = "", style }: ClipRevealProps) {
   const ref = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
     target: ref,
@@ -29,7 +30,7 @@ export function ClipReveal({ children, direction = "up", className = "" }: ClipR
     <motion.div
       ref={ref}
       className={className}
-      style={{ clipPath, willChange: "clip-path" }}
+      style={{ clipPath, willChange: "clip-path", ...style }}
     >
       {children}
     </motion.div>
