@@ -10,7 +10,7 @@ const stories = [
     href: "/mori",
     theme: "warm" as const,
     objectPosition: "100% 50%" as const,
-    noBanner: true,
+    noBanner: false,
   },
   {
     name: "Fashion",
@@ -18,7 +18,7 @@ const stories = [
     href: "/fashion",
     theme: "cool" as const,
     objectPosition: "100% 50%" as const,
-    noBanner: true,
+    noBanner: false,
   },
   {
     name: "Content Creator",
@@ -26,7 +26,7 @@ const stories = [
     href: "/yichen",
     theme: "warm" as const,
     objectPosition: "50% 50%" as const,
-    noBanner: true,
+    noBanner: false,
   },
   {
     name: "Start-up",
@@ -34,7 +34,7 @@ const stories = [
     href: "/north",
     theme: "warm" as const,
     objectPosition: "50% 50%" as const,
-    noBanner: true,
+    noBanner: false,
   },
 ];
 
