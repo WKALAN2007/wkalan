@@ -465,7 +465,7 @@ export function Chapter5Stories() {
           className="flex gap-8"
           style={{
             width: "max-content",
-            animation: `auto-scroll 28s linear infinite`,
+            animation: `auto-scroll 45s linear infinite`,
           }}
         >
           {LOOP_STORIES.map((story, i) => (
@@ -479,7 +479,7 @@ export function Chapter5Stories() {
             className="flex gap-8"
             style={{
               width: "max-content",
-              animation: `auto-scroll-reverse 28s linear infinite`,
+              animation: `auto-scroll-reverse 45s linear infinite`,
             }}
           >
             {LOOP_STORIES.map((story, i) => (
