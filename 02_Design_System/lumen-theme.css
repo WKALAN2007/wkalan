@@ -1,0 +1,106 @@
+/* ══════════════════════════════════════════════════════════════
+   Lumen Dark Theme — inspired by likova.space
+   Architectural. Precise. Quiet.
+   ══════════════════════════════════════════════════════════════ */
+
+:root {
+  /* Canvas — deep navy, like the sky just before dawn */
+  --lumen-bg: #070B20;
+  --lumen-bg-surface: #0C102A;
+  --lumen-bg-elevated: #111734;
+  --lumen-bg-muted: #0A0E26;
+
+  /* Text — white at deliberate opacities */
+  --lumen-text-primary: rgba(255, 255, 255, 0.92);
+  --lumen-text-secondary: rgba(255, 255, 255, 0.58);
+  --lumen-text-tertiary: rgba(255, 255, 255, 0.32);
+  --lumen-text-dim: rgba(255, 255, 255, 0.16);
+
+  /* Accent — one thoughtful blue */
+  --lumen-accent: #5B8DEF;
+  --lumen-accent-hover: #7BA5FF;
+  --lumen-accent-subtle: rgba(91, 141, 239, 0.1);
+
+  /* Borders */
+  --lumen-border: rgba(255, 255, 255, 0.08);
+  --lumen-border-strong: rgba(255, 255, 255, 0.14);
+
+  /* Overlay */
+  --lumen-overlay-strong: rgba(7, 11, 32, 0.75);
+  --lumen-overlay-medium: rgba(7, 11, 32, 0.50);
+  --lumen-overlay-light: rgba(7, 11, 32, 0.30);
+}
+
+/* ══════════════════════════════════════════════════════════════
+   Animations & Effects
+   ══════════════════════════════════════════════════════════════ */
+
+/* Pulse glow — subtle breathing on accent elements */
+@keyframes lumen-pulse-glow {
+  0%, 100% { opacity: 0.6; box-shadow: 0 0 0 0 rgba(91, 141, 239, 0); }
+  50%      { opacity: 1;   box-shadow: 0 0 20px 4px rgba(91, 141, 239, 0.08); }
+}
+
+.lumen-pulse {
+  animation: lumen-pulse-glow 3s ease-in-out infinite;
+}
+
+/* Floating vertical drift */
+@keyframes lumen-float {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-12px); }
+}
+
+.lumen-float {
+  animation: lumen-float 6s ease-in-out infinite;
+}
+
+/* Bitten-corner button — likova signature */
+.lumen-btn-bitten {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.75rem;
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--lumen-text-primary);
+  background: transparent;
+  border: 1px solid var(--lumen-border-strong);
+  clip-path: polygon(
+    0 6px, 6px 0,
+    calc(100% - 6px) 0, 100% 6px,
+    100% calc(100% - 6px), calc(100% - 6px) 100%,
+    6px 100%, 0 calc(100% - 6px)
+  );
+  transition: border-color 0.3s, color 0.3s, background 0.3s;
+  cursor: pointer;
+}
+
+.lumen-btn-bitten:hover {
+  border-color: var(--lumen-accent);
+  color: var(--lumen-accent);
+  background: var(--lumen-accent-subtle);
+}
+
+.lumen-btn-bitten--accent {
+  border-color: var(--lumen-accent);
+  color: var(--lumen-accent);
+}
+
+.lumen-btn-bitten--accent:hover {
+  background: var(--lumen-accent);
+  color: #fff;
+}
+
+/* Marquee scroll */
+@keyframes lumen-marquee {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.lumen-marquee-track {
+  animation: lumen-marquee 25s linear infinite;
+}

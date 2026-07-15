@@ -1,0 +1,58 @@
+"use client";
+
+import { motion } from "framer-motion";
+import { useEffect, useState } from "react";
+import Link from "next/link";
+
+export function BackToHome() {
+  const [visible, setVisible] = useState(false);
+
+  useEffect(() => {
+    const lenis = (window as any).__lenis;
+    if (!lenis) {
+      const onScroll = () => setVisible(window.scrollY > 400);
+      window.addEventListener("scroll", onScroll, { passive: true });
+      return () => window.removeEventListener("scroll", onScroll);
+    }
+    const update = ({ scroll }: { scroll: number }) => setVisible(scroll > 400);
+    lenis.on("scroll", update);
+    return () => lenis.off("scroll", update);
+  }, []);
+
+  const scrollToTop = () => {
+    const lenis = (window as any).__lenis;
+    if (lenis) lenis.scrollTo(0, { duration: 0.8 });
+    else window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
+  return (
+    <motion.div
+      className="fixed bottom-8 right-8 z-50 flex flex-col gap-2"
+      initial={false}
+      animate={{ opacity: visible ? 1 : 0, pointerEvents: visible ? "auto" : "none" }}
+      transition={{ duration: 0.3 }}
+    >
+      <button
+        onClick={scrollToTop}
+        className="flex h-10 w-10 items-center justify-center rounded-full border backdrop-blur-sm transition-all hover:border-white/30 hover:text-white/80"
+        style={{ borderColor: "var(--lumen-border)", background: "rgba(7, 11, 32, 0.9)", color: "var(--lumen-text-tertiary)" }}
+        aria-label="Back to top"
+      >
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.5">
+          <path d="M3 10l5-5 5 5" />
+        </svg>
+      </button>
+      <Link
+        href="/lumen"
+        className="flex h-10 w-10 items-center justify-center rounded-full border backdrop-blur-sm transition-all hover:border-white/30 hover:text-white/80"
+        style={{ borderColor: "var(--lumen-border)", background: "rgba(7, 11, 32, 0.9)", color: "var(--lumen-text-tertiary)" }}
+        aria-label="Back to home"
+      >
+        <svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.5">
+          <path d="M2 6l6-4 6 4v8H2V6z" />
+          <path d="M6 14V9h4v5" />
+        </svg>
+      </Link>
+    </motion.div>
+  );
+}
