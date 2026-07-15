@@ -274,9 +274,9 @@ function StoryCard({
 
       {(story as any).noBanner ? (
         /* ── Text-only card (no banner) ── */
-        <div className="flex aspect-[16/10] items-center justify-center bg-[#1A1A18]">
+        <div className="flex aspect-[16/9] items-center justify-center bg-[#1A1A18]">
           <motion.h3
-            className="font-heading text-lg sm:text-xl"
+            className="font-heading text-xl sm:text-2xl"
             animate={{
               color: hovered
                 ? isWarm
@@ -297,7 +297,7 @@ function StoryCard({
       ) : (
         /* ── Image banner card ── */
         <motion.div
-          className="relative aspect-[16/10] overflow-hidden bg-[#1A1A18]"
+          className="relative aspect-[16/9] overflow-hidden bg-[#1A1A18]"
           style={{ rotateY, rotateX }}
         >
           <motion.img
@@ -335,7 +335,7 @@ function StoryCard({
 
           <div className="pointer-events-none absolute inset-x-0 bottom-0 z-[3] bg-gradient-to-t from-black/70 via-black/30 to-transparent p-6 pt-16">
             <motion.h3
-              className="font-heading text-lg sm:text-xl"
+              className="font-heading text-xl sm:text-2xl"
               animate={{
                 color: hovered
                   ? isWarm
