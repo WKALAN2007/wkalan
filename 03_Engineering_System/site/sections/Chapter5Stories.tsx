@@ -29,7 +29,7 @@ const stories = [
     noBanner: true,
   },
   {
-    name: "North",
+    name: "Start-up",
     banner: "/north-banner.jpg",
     href: "/north",
     theme: "warm" as const,
