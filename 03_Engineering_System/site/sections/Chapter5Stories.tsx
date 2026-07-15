@@ -38,8 +38,14 @@ const stories = [
   },
 ];
 
-// Duplicate for seamless infinite loop (4 stories × 4 = 16 cards)
-const LOOP_STORIES = [...stories, ...stories, ...stories, ...stories];
+// Top row order: Content Creator → Start-up → Fashion → Photographer
+const topRow = [stories[2], stories[3], stories[1], stories[0]];
+// Bottom row order: Fashion → Photographer → Content Creator → Start-up
+const bottomRow = [stories[1], stories[0], stories[2], stories[3]];
+
+// Duplicate for seamless infinite loop
+const LOOP_TOP = [...topRow, ...topRow, ...topRow, ...topRow];
+const LOOP_BOTTOM = [...bottomRow, ...bottomRow, ...bottomRow, ...bottomRow];
 
 /* ─────────────────────────────────────────
    Inject keyframes
@@ -468,7 +474,7 @@ export function Chapter5Stories() {
             animation: `auto-scroll 45s linear infinite`,
           }}
         >
-          {LOOP_STORIES.map((story, i) => (
+          {LOOP_TOP.map((story, i) => (
             <StoryCard key={`${story.name}-${i}`} story={story} index={i % 2} />
           ))}
         </div>
@@ -482,7 +488,7 @@ export function Chapter5Stories() {
               animation: `auto-scroll-reverse 45s linear infinite`,
             }}
           >
-            {LOOP_STORIES.map((story, i) => (
+            {LOOP_BOTTOM.map((story, i) => (
               <StoryCard key={`${story.name}-rev-${i}`} story={story} index={i % 2} />
             ))}
           </div>
