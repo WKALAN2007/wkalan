@@ -4,7 +4,6 @@ import { Footer } from "@/03_Engineering_System/site/layout/Footer";
 import { PageLoader } from "@/03_Engineering_System/site/layout/PageLoader";
 import { NoiseOverlay } from "@/02_Design_System/components/NoiseOverlay";
 import { ScrollProgress } from "@/02_Design_System/components/ScrollProgress";
-import { IntroTransition } from "@/02_Design_System/components/IntroTransition";
 
 export default function SiteLayout({
   children,
@@ -13,7 +12,6 @@ export default function SiteLayout({
 }) {
   return (
     <>
-      <IntroTransition />
       <PageLoader />
       <SmoothScroll />
       <ScrollProgress />

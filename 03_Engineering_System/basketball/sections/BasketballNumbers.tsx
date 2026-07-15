@@ -72,37 +72,36 @@ function AnimatedNumber({
         {display}
         {suffix}
       </span>
-      <span className="text-xs tracking-[0.2em] text-[#666666]">{label}</span>
+      <span className="text-xs tracking-[0.2em] text-white/20">{label}</span>
     </div>
   );
 }
 
 export function BasketballNumbers() {
   return (
-    <section id="numbers" className="bg-[#0a0a0a] py-24 sm:py-36">
-      <div className="mx-auto max-w-[1400px] px-6 sm:px-8">
-        {/* Section Header */}
+    <section className="relative flex min-h-[60vh] items-center justify-center overflow-hidden bg-[#0a0a0a] px-8">
+      {/* Subtle radial glow */}
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(201,168,76,0.04)_0%,transparent_70%)]" />
+
+      <div className="relative z-10 flex flex-col items-center gap-16">
+        {/* Section header */}
         <motion.div
-          className="mb-16 flex flex-col items-center gap-3 text-center"
+          className="flex flex-col items-center gap-4 text-center"
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, margin: "-80px" }}
+          viewport={{ once: true, margin: "-120px" }}
         >
           <motion.span
-            className="text-xs font-medium uppercase tracking-[0.25em] text-[#c9a84c]"
+            className="text-xs tracking-[0.25em] text-[#c9a84c]/40"
             variants={{
-              hidden: { opacity: 0, y: 16 },
-              visible: {
-                opacity: 1,
-                y: 0,
-                transition: { duration: 0.7, ease: [0.16, 1, 0.3, 1] },
-              },
+              hidden: { opacity: 0 },
+              visible: { opacity: 1, transition: { duration: 0.7 } },
             }}
           >
-            The Numbers
+            第六章 · 数字
           </motion.span>
           <motion.div
-            className="h-[1px] w-12 bg-[#c9a84c]/40"
+            className="h-[1px] w-12 bg-[#c9a84c]/20"
             variants={{
               hidden: { scaleX: 0 },
               visible: {
@@ -110,8 +109,20 @@ export function BasketballNumbers() {
                 transition: { duration: 0.8, delay: 0.2, ease: [0.16, 1, 0.3, 1] },
               },
             }}
-            style={{ transformOrigin: "center" }}
           />
+          <motion.p
+            className="max-w-sm text-sm leading-relaxed text-white/25"
+            variants={{
+              hidden: { opacity: 0, y: 16 },
+              visible: {
+                opacity: 1,
+                y: 0,
+                transition: { duration: 0.9, delay: 0.4, ease: [0.16, 1, 0.3, 1] },
+              },
+            }}
+          >
+            数字不能定义他。但它们说明了一些事情。
+          </motion.p>
         </motion.div>
 
         {/* Numbers Grid */}

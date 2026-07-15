@@ -1,107 +1,138 @@
 "use client";
 
-import { motion } from "framer-motion";
 import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+
+const inviteChars = "Stay in touch.".split(" ");
 
 export function FashionNewsletter() {
   const [submitted, setSubmitted] = useState(false);
+  const [email, setEmail] = useState("");
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    setSubmitted(true);
+    if (email.trim()) {
+      setSubmitted(true);
+    }
   };
 
   return (
-    <section className="bg-[#FAFAFA] py-24 sm:py-36">
-      <div className="mx-auto max-w-[1400px] px-6 sm:px-8">
-        <motion.div
-          className="mx-auto max-w-lg text-center"
+    <section className="relative flex min-h-[70vh] items-center justify-center overflow-hidden bg-[#FAFAFA] px-6">
+      <div className="relative z-10 flex flex-col items-center gap-10 text-center">
+        {/* Chapter label */}
+        <motion.span
+          className="text-xs tracking-[0.2em] text-[#B8B0A0]"
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, margin: "-80px" }}
+          viewport={{ once: true, margin: "-120px" }}
+          variants={{
+            hidden: { opacity: 0 },
+            visible: { opacity: 1, transition: { duration: 0.7 } },
+          }}
         >
+          第五章 · 联系
+        </motion.span>
+
+        {/* Character-by-character headline */}
+        <h2 className="font-heading text-3xl tracking-[-0.01em] text-[#1E1E1C] sm:text-5xl">
           <motion.span
-            className="text-[10px] font-medium uppercase tracking-[0.25em] text-[#999999] sm:text-xs"
+            className="inline-flex flex-wrap justify-center gap-x-[0.25em]"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-100px" }}
             variants={{
-              hidden: { opacity: 0, y: 16 },
-              visible: {
-                opacity: 1,
-                y: 0,
-                transition: { duration: 0.7, ease: [0.16, 1, 0.3, 1] },
-              },
+              hidden: {},
+              visible: { transition: { staggerChildren: 0.06, delayChildren: 0.2 } },
             }}
           >
-            Stay Connected
+            {inviteChars.map((char, i) => (
+              <motion.span
+                key={char + i}
+                className="inline-block"
+                variants={{
+                  hidden: { opacity: 0, y: 24, filter: "blur(6px)" },
+                  visible: {
+                    opacity: 1,
+                    y: 0,
+                    filter: "blur(0px)",
+                    transition: { duration: 0.7, ease: [0.16, 1, 0.3, 1] },
+                  },
+                }}
+              >
+                {char === " " ? " " : char}
+              </motion.span>
+            ))}
           </motion.span>
+        </h2>
 
-          <motion.h2
-            className="mt-5 font-heading text-2xl text-[#1A1A1A] sm:text-3xl"
-            style={{ fontFamily: "var(--font-instrument-serif)" }}
-            variants={{
-              hidden: { opacity: 0, y: 24 },
-              visible: {
-                opacity: 1,
-                y: 0,
-                transition: { duration: 0.8, delay: 0.1, ease: [0.16, 1, 0.3, 1] },
-              },
-            }}
-          >
-            Join the family
-          </motion.h2>
+        {/* Description */}
+        <motion.p
+          className="max-w-sm text-sm leading-relaxed text-[#8C8880]"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          variants={{
+            hidden: { opacity: 0, y: 16 },
+            visible: {
+              opacity: 1,
+              y: 0,
+              transition: { duration: 0.8, delay: 0.9, ease: [0.16, 1, 0.3, 1] },
+            },
+          }}
+        >
+          Early access to new drops, collection notes,
+          <br />
+          and the occasional letter from our atelier.
+        </motion.p>
 
-          <motion.p
-            className="mt-3 text-sm leading-relaxed text-[#888888]"
-            variants={{
-              hidden: { opacity: 0, y: 24 },
-              visible: {
-                opacity: 1,
-                y: 0,
-                transition: { duration: 0.8, delay: 0.2, ease: [0.16, 1, 0.3, 1] },
-              },
-            }}
-          >
-            Early access to our drops, exclusive insights
-            <br />
-            and way more.
-          </motion.p>
-
-          {submitted ? (
-            <motion.p
-              className="mt-10 text-sm font-medium text-[#1A1A1A]"
-              initial={{ opacity: 0, scale: 0.95 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
-            >
-              Thank you. You&apos;re on the list.
-            </motion.p>
-          ) : (
+        {/* Form or success message */}
+        <AnimatePresence mode="wait">
+          {!submitted ? (
             <motion.form
+              key="form"
               onSubmit={handleSubmit}
-              className="mt-8 flex flex-col gap-3 sm:flex-row sm:gap-2"
+              className="flex w-full max-w-sm flex-col gap-3 sm:flex-row"
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
               variants={{
-                hidden: { opacity: 0, y: 24 },
+                hidden: { opacity: 0, y: 16 },
                 visible: {
                   opacity: 1,
                   y: 0,
-                  transition: { duration: 0.8, delay: 0.3, ease: [0.16, 1, 0.3, 1] },
+                  transition: { duration: 0.8, delay: 1.2 },
                 },
               }}
+              exit={{ opacity: 0, y: -16, transition: { duration: 0.3 } }}
             >
               <input
                 type="email"
-                placeholder="Your email address"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                placeholder="Your email"
                 required
-                className="flex-1 border-b border-[#CCCCCC] bg-transparent px-1 py-3 text-sm text-[#1A1A1A] outline-none transition-colors placeholder:text-[#AAAAAA] focus:border-[#1A1A1A]"
+                className="flex-1 border-b border-[#D4CEC6] bg-transparent px-1 py-3 text-sm text-[#1E1E1C] placeholder-[#B8B0A0] outline-none transition-colors focus:border-[#1E1E1C]"
               />
               <button
                 type="submit"
-                className="whitespace-nowrap border border-[#1A1A1A] px-6 py-3 text-xs font-medium uppercase tracking-[0.15em] text-[#1A1A1A] transition-all hover:bg-[#1A1A1A] hover:text-white sm:px-8"
+                className="border border-[#1E1E1C] px-8 py-3 text-sm tracking-[0.08em] text-[#1E1E1C] transition-all hover:bg-[#1E1E1C] hover:text-white"
               >
-                Sign Up
+                Subscribe
               </button>
             </motion.form>
+          ) : (
+            <motion.div
+              key="success"
+              className="flex flex-col items-center gap-2"
+              initial={{ opacity: 0, scale: 0.96 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+            >
+              <span className="font-heading text-2xl text-[#1E1E1C]">Thank you.</span>
+              <span className="text-sm text-[#8C8880]">You&apos;re on the list.</span>
+            </motion.div>
           )}
-        </motion.div>
+        </AnimatePresence>
       </div>
     </section>
   );

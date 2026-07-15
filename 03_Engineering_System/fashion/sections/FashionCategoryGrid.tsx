@@ -3,105 +3,79 @@
 import { motion } from "framer-motion";
 
 const categories = [
-  {
-    name: "Ready-to-Wear",
-    image: "/fashion/category-1.jpg",
-    href: "#",
-    objectPos: "50% 30%",
-  },
-  {
-    name: "Tailoring",
-    image: "/fashion/category-2.jpg",
-    href: "#",
-    objectPos: "50% 25%",
-  },
-  {
-    name: "Accessories",
-    image: "/fashion/category-3.jpg",
-    href: "#",
-    objectPos: "50% 30%",
-  },
+  { label: "Outerwear", image: "/fashion/cat-outerwear.jpg", count: "12 pieces" },
+  { label: "Knitwear", image: "/fashion/cat-knitwear.jpg", count: "8 pieces" },
+  { label: "Trousers", image: "/fashion/cat-trousers.jpg", count: "10 pieces" },
+  { label: "Accessories", image: "/fashion/cat-accessories.jpg", count: "6 pieces" },
 ];
 
 export function FashionCategoryGrid() {
   return (
-    <section id="category-grid" className="bg-[#FAFAFA] py-20 sm:py-28">
+    <section className="bg-[#FAFAFA] py-28 sm:py-36">
       <div className="mx-auto max-w-[1400px] px-6 sm:px-8">
-        {/* Section Header */}
+        {/* Section header */}
         <motion.div
-          className="mb-12 flex flex-col gap-3 sm:mb-16"
+          className="mb-24"
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, margin: "-80px" }}
+          viewport={{ once: true }}
         >
           <motion.span
-            className="text-[10px] font-medium uppercase tracking-[0.25em] text-[#999999] sm:text-xs"
+            className="text-xs tracking-[0.2em] text-[#B8B0A0]"
+            variants={{
+              hidden: { opacity: 0 },
+              visible: { opacity: 1, transition: { duration: 0.7 } },
+            }}
+          >
+            第二章 · 系列
+          </motion.span>
+          <motion.p
+            className="mt-6 font-heading text-3xl leading-[1.2] tracking-[-0.01em] text-[#1E1E1C] sm:text-4xl"
             variants={{
               hidden: { opacity: 0, y: 16 },
-              visible: {
-                opacity: 1,
-                y: 0,
-                transition: { duration: 0.7, ease: [0.16, 1, 0.3, 1] },
-              },
+              visible: { opacity: 1, y: 0, transition: { duration: 0.7, delay: 0.1 } },
             }}
           >
-            Shop by Category
-          </motion.span>
-          <motion.h2
-            className="font-heading text-2xl leading-tight text-[#1A1A1A] sm:text-3xl md:text-4xl"
-            style={{ fontFamily: "var(--font-instrument-serif)" }}
-            variants={{
-              hidden: { opacity: 0, y: 24 },
-              visible: {
-                opacity: 1,
-                y: 0,
-                transition: { duration: 0.8, delay: 0.1, ease: [0.16, 1, 0.3, 1] },
-              },
-            }}
-          >
-            The Essentials
-          </motion.h2>
+            Shop by
+            <br />
+            Category
+          </motion.p>
         </motion.div>
 
-        {/* Category Grid — all cards equal height via aspect ratio */}
-        <div className="grid gap-4 sm:gap-5 lg:grid-cols-3">
+        {/* Category cards */}
+        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {categories.map((cat, i) => (
             <motion.a
-              key={cat.name}
-              href={cat.href}
-              className="group relative block w-full overflow-hidden bg-[#E8E5E0]"
-              style={{ aspectRatio: "3 / 4" }}
-              initial={{ opacity: 0, y: 32 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{
-                duration: 0.7,
-                delay: 0.12 * i,
-                ease: [0.16, 1, 0.3, 1],
-              }}
+              key={cat.label}
+              href="#"
+              className="group relative aspect-[3/4] cursor-pointer overflow-hidden bg-[#E8E5E0]"
+              initial="hidden"
+              whileInView="visible"
               viewport={{ once: true, margin: "-50px" }}
+              variants={{
+                hidden: { opacity: 0, y: 24, filter: "blur(4px)" },
+                visible: {
+                  opacity: 1,
+                  y: 0,
+                  filter: "blur(0px)",
+                  transition: {
+                    duration: 0.7,
+                    delay: 0.12 * i,
+                    ease: [0.16, 1, 0.3, 1],
+                  },
+                },
+              }}
             >
-              <img
-                src={cat.image}
-                alt={cat.name}
-                className="h-full w-full object-cover transition-transform duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-105"
-                style={{ objectPosition: cat.objectPos }}
-              />
-              {/* Overlay */}
-              <div className="absolute inset-0 bg-black/25 transition-all duration-500 group-hover:bg-black/40" />
-              {/* Text */}
-              <div className="absolute inset-x-0 bottom-0 p-5 sm:p-7">
-                <h3
-                  className="text-xl text-white sm:text-2xl"
-                  style={{ fontFamily: "var(--font-instrument-serif)" }}
-                >
-                  {cat.name}
-                </h3>
-                <span className="mt-1 inline-flex items-center gap-1 text-[10px] font-medium uppercase tracking-[0.2em] text-white/60 transition-all group-hover:gap-2 group-hover:text-white/80 sm:text-xs">
-                  Shop
-                  <span className="transition-transform group-hover:translate-x-0.5">
-                    &rarr;
-                  </span>
-                </span>
+              {/* Placeholder gradient */}
+              <div className="absolute inset-0 bg-gradient-to-br from-[#E8E4DC] to-[#F3F2EF] transition-transform duration-700 group-hover:scale-105" />
+
+              {/* Hover overlay */}
+              <div className="absolute inset-0 bg-black/0 transition-all duration-500 group-hover:bg-black/25" />
+
+              {/* Label */}
+              <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/60 to-transparent p-6 pt-16">
+                <h3 className="text-lg font-medium text-white">{cat.label}</h3>
+                <span className="text-xs tracking-[0.08em] text-white/60">{cat.count}</span>
               </div>
             </motion.a>
           ))}

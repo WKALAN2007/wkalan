@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import { Instrument_Serif } from "next/font/google";
 import "./globals.css";
+import { IntroTransition } from "@/02_Design_System/components/IntroTransition";
 
 const instrumentSerif = Instrument_Serif({
   weight: ["400"],
@@ -75,6 +76,7 @@ export default function RootLayout({
       suppressHydrationWarning
     >
       <body className="min-h-full flex flex-col bg-background text-primary">
+        <IntroTransition />
         {children}
       </body>
     </html>

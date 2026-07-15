@@ -2,79 +2,111 @@
 
 import { motion } from "framer-motion";
 
+const headlineWords = "Clothes worn for living rather than being seen.".split(" ");
+
 export function FashionManifesto() {
   return (
-    <section id="manifesto" className="bg-[#F0EDE8] py-24 sm:py-36">
-      <div className="mx-auto max-w-[1400px] px-6 sm:px-8">
-        <motion.div
-          className="mx-auto max-w-2xl text-center"
+    <section className="relative flex min-h-screen items-center justify-center overflow-hidden bg-[#F0EDE8] px-8">
+      <div className="relative z-10 mx-auto flex max-w-2xl flex-col items-center gap-10 text-center">
+        {/* Chapter label */}
+        <motion.span
+          className="text-xs tracking-[0.25em] text-[#B8B0A0]"
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, margin: "-80px" }}
+          viewport={{ once: true, margin: "-120px" }}
+          variants={{
+            hidden: { opacity: 0 },
+            visible: { opacity: 1, transition: { duration: 0.7 } },
+          }}
         >
+          第三章 · 哲学
+        </motion.span>
+
+        {/* Word-by-word headline reveal */}
+        <p className="font-heading text-3xl leading-relaxed tracking-[-0.01em] text-[#1E1E1C] sm:text-4xl md:text-5xl">
           <motion.span
-            className="text-[10px] font-medium uppercase tracking-[0.25em] text-[#999999] sm:text-xs"
+            className="inline-flex flex-wrap justify-center gap-x-[0.3em]"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-100px" }}
             variants={{
-              hidden: { opacity: 0, y: 16 },
-              visible: {
-                opacity: 1,
-                y: 0,
-                transition: { duration: 0.7, ease: [0.16, 1, 0.3, 1] },
-              },
+              hidden: {},
+              visible: { transition: { staggerChildren: 0.06, delayChildren: 0.2 } },
             }}
           >
-            Our Philosophy
+            {headlineWords.map((word, i) => (
+              <motion.span
+                key={word + i}
+                className="inline-block"
+                variants={{
+                  hidden: { opacity: 0, y: 24, filter: "blur(8px)" },
+                  visible: {
+                    opacity: 1,
+                    y: 0,
+                    filter: "blur(0px)",
+                    transition: { duration: 0.7, ease: [0.16, 1, 0.3, 1] },
+                  },
+                }}
+              >
+                {word}
+              </motion.span>
+            ))}
           </motion.span>
+        </p>
 
-          <motion.h2
-            className="mt-6 font-heading text-2xl leading-[1.2] text-[#1A1A1A] sm:text-3xl md:text-4xl"
-            style={{ fontFamily: "var(--font-instrument-serif)" }}
-            variants={{
-              hidden: { opacity: 0, y: 24 },
-              visible: {
-                opacity: 1,
-                y: 0,
-                transition: { duration: 0.8, delay: 0.1, ease: [0.16, 1, 0.3, 1] },
-              },
-            }}
-          >
-            Clothes worn for living
-            <br />
-            rather than being seen.
-          </motion.h2>
+        {/* Divider */}
+        <motion.div
+          className="h-[1px] w-16 bg-[#D4CEC6]"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          variants={{
+            hidden: { scaleX: 0 },
+            visible: {
+              scaleX: 1,
+              transition: { duration: 0.8, delay: 0.4, ease: [0.16, 1, 0.3, 1] },
+            },
+          }}
+        />
 
-          <motion.p
-            className="mt-6 text-sm leading-relaxed text-[#777777] sm:mt-8 sm:text-base"
-            variants={{
-              hidden: { opacity: 0, y: 24 },
-              visible: {
-                opacity: 1,
-                y: 0,
-                transition: { duration: 0.8, delay: 0.25, ease: [0.16, 1, 0.3, 1] },
-              },
-            }}
-          >
-            This collection begins with a wish to return to the source — the kind
-            of garments you reach for without thinking, because they already feel
-            familiar. We believe in timeless silhouettes, honest materials, and
-            the quiet confidence that comes from wearing something made with
-            intention. Every piece is crafted to outlast seasons, not chase them.
-          </motion.p>
+        {/* Body */}
+        <motion.p
+          className="max-w-lg text-sm leading-relaxed text-[#6B6B68]"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          variants={{
+            hidden: { opacity: 0, y: 16 },
+            visible: {
+              opacity: 1,
+              y: 0,
+              transition: { duration: 0.9, delay: 0.8, ease: [0.16, 1, 0.3, 1] },
+            },
+          }}
+        >
+          We believe in timeless silhouettes, honest materials, and the quiet confidence
+          that comes from wearing something made with intention. Every garment is designed
+          to be lived in — worn, washed, loved, and worn again. No seasons. No trends.
+          Just clothes that earn their place in your life.
+        </motion.p>
 
-          <motion.p
-            className="mt-4 text-sm leading-relaxed text-[#999999]"
-            variants={{
-              hidden: { opacity: 0, y: 24 },
-              visible: {
-                opacity: 1,
-                y: 0,
-                transition: { duration: 0.8, delay: 0.35, ease: [0.16, 1, 0.3, 1] },
-              },
-            }}
-          >
-            No logos. No trends. Just clothes that feel like home.
-          </motion.p>
-        </motion.div>
+        {/* Closing line */}
+        <motion.p
+          className="mt-4 font-heading text-lg italic tracking-[-0.01em] text-[#8C8880]"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          variants={{
+            hidden: { opacity: 0, y: 12 },
+            visible: {
+              opacity: 1,
+              y: 0,
+              transition: { duration: 0.8, delay: 1.2, ease: [0.16, 1, 0.3, 1] },
+            },
+          }}
+        >
+          No logos. No trends. Just clothes that feel like home.
+        </motion.p>
       </div>
     </section>
   );

@@ -267,6 +267,22 @@ export default function MoriHome() {
             />
           </motion.div>
         </div>
+
+        {/* Scroll hint */}
+        <motion.div
+          className="absolute bottom-10 right-8 z-10 hidden sm:block"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 1, delay: 4.0 }}
+        >
+          <motion.span
+            className="text-[11px] tracking-[0.2em] text-white/25"
+            animate={{ y: [0, 6, 0] }}
+            transition={{ duration: 2.5, repeat: Infinity, ease: "easeInOut" }}
+          >
+            SCROLL
+          </motion.span>
+        </motion.div>
       </section>
 
       {/* ── Chapter 2: The Pause ── */}

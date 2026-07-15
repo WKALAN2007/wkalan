@@ -1,7 +1,9 @@
 "use client";
 
-import { motion } from "framer-motion";
-import { ExternalLink } from "lucide-react";
+import { useRef } from "react";
+import { motion, useScroll, useTransform } from "framer-motion";
+
+const inviteHeadline = "一起做一个好作品。".split("");
 
 const contacts = [
   {
@@ -11,7 +13,7 @@ const contacts = [
     note: "30万+ 粉丝",
   },
   {
-    label: "WeChat",
+    label: "微信",
     value: "baiyunfan7",
     href: "#",
     note: "注明来意",
@@ -25,91 +27,143 @@ const contacts = [
 ];
 
 export function BasketballConnect() {
+  const sectionRef = useRef<HTMLElement>(null);
+
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ["start end", "end start"],
+  });
+
+  const bgOpacity = useTransform(scrollYProgress, [0, 0.3, 0.7, 1], [0.97, 1, 1, 0.97]);
+
   return (
-    <section id="connect" className="bg-[#111111] py-24 sm:py-36">
-      <div className="mx-auto max-w-[1400px] px-6 sm:px-8">
-        {/* Section Header */}
-        <motion.div
-          className="mb-16 flex flex-col items-center gap-3 text-center"
+    <section
+      ref={sectionRef}
+      className="relative flex min-h-[80vh] items-center justify-center overflow-hidden px-6"
+    >
+      {/* Breathing background */}
+      <motion.div
+        className="absolute inset-0 bg-[#0a0a0a]"
+        style={{ opacity: bgOpacity }}
+      />
+
+      <div className="relative z-10 flex flex-col items-center gap-10 text-center">
+        {/* Chapter label */}
+        <motion.span
+          className="text-xs tracking-[0.2em] text-[#c9a84c]/40"
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, margin: "-80px" }}
+          viewport={{ once: true, margin: "-120px" }}
+          variants={{
+            hidden: { opacity: 0 },
+            visible: { opacity: 1, transition: { duration: 0.7 } },
+          }}
         >
+          第七章 · 联系
+        </motion.span>
+
+        {/* Character-by-character headline */}
+        <h2 className="font-heading text-3xl tracking-[-0.01em] text-white/80 sm:text-5xl md:text-6xl">
           <motion.span
-            className="text-xs font-medium uppercase tracking-[0.25em] text-[#c9a84c]"
+            className="inline-flex flex-wrap justify-center gap-x-[0.3em]"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-100px" }}
             variants={{
-              hidden: { opacity: 0, y: 16 },
-              visible: {
-                opacity: 1,
-                y: 0,
-                transition: { duration: 0.7, ease: [0.16, 1, 0.3, 1] },
-              },
+              hidden: {},
+              visible: { transition: { staggerChildren: 0.06, delayChildren: 0.2 } },
             }}
           >
-            The Connect
+            {inviteHeadline.map((char, i) => (
+              <motion.span
+                key={char + i}
+                className="inline-block"
+                variants={{
+                  hidden: { opacity: 0, y: 32, filter: "blur(6px)" },
+                  visible: {
+                    opacity: 1,
+                    y: 0,
+                    filter: "blur(0px)",
+                    transition: { duration: 0.7, ease: [0.16, 1, 0.3, 1] },
+                  },
+                }}
+              >
+                {char}
+              </motion.span>
+            ))}
           </motion.span>
-          <motion.div
-            className="h-[1px] w-12 bg-[#c9a84c]/40"
-            variants={{
-              hidden: { scaleX: 0 },
-              visible: {
-                scaleX: 1,
-                transition: { duration: 0.8, delay: 0.2, ease: [0.16, 1, 0.3, 1] },
-              },
-            }}
-            style={{ transformOrigin: "center" }}
-          />
-        </motion.div>
+        </h2>
+
+        {/* Description */}
+        <motion.p
+          className="max-w-sm text-base leading-relaxed text-white/25 sm:text-lg"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          variants={{
+            hidden: { opacity: 0, y: 24 },
+            visible: {
+              opacity: 1,
+              y: 0,
+              transition: { duration: 0.8, delay: 0.9, ease: [0.16, 1, 0.3, 1] },
+            },
+          }}
+        >
+          如果你有故事，<br />
+          值得被看见——<br />
+          我想剪。
+        </motion.p>
 
         {/* Contact Cards */}
-        <div className="mx-auto grid max-w-2xl grid-cols-1 gap-4 sm:grid-cols-3">
-          {contacts.map((c, i) => (
-            <motion.a
+        <motion.div
+          className="flex flex-wrap justify-center gap-4"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          variants={{
+            hidden: { opacity: 0 },
+            visible: {
+              opacity: 1,
+              transition: { duration: 0.8, delay: 1.3 },
+            },
+          }}
+        >
+          {contacts.map((c) => (
+            <a
               key={c.label}
               href={c.href}
               target={c.href.startsWith("http") ? "_blank" : undefined}
               rel={c.href.startsWith("http") ? "noopener noreferrer" : undefined}
-              className="group flex flex-col items-center gap-2 border border-[#1a1a1a] bg-[#0d0d0d] p-6 text-center transition-all duration-500 hover:border-[#c9a84c]/30"
-              initial={{ opacity: 0, y: 24 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{
-                duration: 0.6,
-                delay: 0.1 * i,
-                ease: [0.16, 1, 0.3, 1],
-              }}
-              viewport={{ once: true, margin: "-50px" }}
+              className="group flex flex-col items-center gap-1 border border-white/[0.06] bg-white/[0.02] px-8 py-5 text-center transition-all duration-500 hover:border-[#c9a84c]/20 hover:bg-white/[0.04]"
             >
-              <span className="text-[10px] font-medium uppercase tracking-[0.2em] text-[#888888]">
+              <span className="text-[10px] tracking-[0.2em] text-white/20">
                 {c.label}
               </span>
-              <span className="flex items-center gap-1 text-sm font-bold text-white transition-colors group-hover:text-[#c9a84c]">
+              <span className="text-sm font-medium text-white/60 transition-colors group-hover:text-[#c9a84c]">
                 {c.value}
-                {c.href.startsWith("http") && (
-                  <ExternalLink className="h-3 w-3 opacity-0 transition-opacity group-hover:opacity-100" />
-                )}
               </span>
-              <span className="text-xs text-[#666666]">{c.note}</span>
-            </motion.a>
+              <span className="text-[11px] text-white/15">{c.note}</span>
+            </a>
           ))}
-        </div>
-
-        {/* Main Bilibili CTA */}
-        <motion.div
-          className="mt-12 text-center"
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ duration: 0.6, delay: 0.4 }}
-          viewport={{ once: true }}
-        >
-          <a
-            href="https://space.bilibili.com/108062400"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 border border-[#c9a84c] px-10 py-4 text-sm font-medium uppercase tracking-[0.15em] text-[#c9a84c] transition-all hover:bg-[#c9a84c] hover:text-[#0a0a0a]"
-          >
-            在 B 站 观 看 &rarr;
-          </a>
         </motion.div>
+
+        {/* Closing quote */}
+        <motion.p
+          className="mt-8 max-w-md font-heading text-lg italic leading-relaxed tracking-[-0.01em] text-[#c9a84c]/30"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          variants={{
+            hidden: { opacity: 0, y: 12 },
+            visible: {
+              opacity: 1,
+              y: 0,
+              transition: { duration: 0.8, delay: 1.6, ease: [0.16, 1, 0.3, 1] },
+            },
+          }}
+        >
+          &ldquo;每一刀，都有情绪。&rdquo;
+        </motion.p>
       </div>
     </section>
   );

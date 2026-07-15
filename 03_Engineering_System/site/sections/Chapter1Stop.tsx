@@ -15,16 +15,22 @@ export function Chapter1Stop() {
   const textY = useTransform(scrollYProgress, [0, 0.4], [0, -40]);
 
   return (
-    <section ref={ref} className="relative flex h-screen min-h-[700px] items-center overflow-hidden bg-[#0A0A0A]">
-      {/* Background photo */}
-      <motion.div className="absolute inset-0 z-0" style={{ scale: posterScale }}>
+    <section
+      ref={ref}
+      className="relative flex h-dvh items-center overflow-hidden bg-[#0A0A0A]"
+    >
+      {/* Background photo — covers entire frame */}
+      <motion.div
+        className="absolute inset-0 z-0"
+        style={{ scale: posterScale }}
+      >
         <img
           src="/hero-surf.jpg"
           alt=""
           className="h-full w-full object-cover object-center"
         />
-        {/* Dark cinematic overlay */}
-        <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/50 to-black/90" />
+        {/* Cinematic overlay — lighter so image dominates */}
+        <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/40 to-black/85" />
       </motion.div>
 
       {/* Poster typography */}
@@ -39,7 +45,7 @@ export function Chapter1Stop() {
         >
           {/* Top line */}
           <motion.p
-            className="text-xs font-medium uppercase tracking-[0.3em] text-[#C9A84C]/60"
+            className="text-xs font-medium uppercase tracking-[0.2em] text-[#C9A84C]/60"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 1.5, ease: [0.16, 1, 0.3, 1] }}
@@ -84,7 +90,7 @@ export function Chapter1Stop() {
         </motion.div>
       </motion.div>
 
-      {/* Scroll whisper */}
+      {/* Scroll indicator */}
       <motion.div
         className="absolute inset-x-0 bottom-12 z-10 flex justify-center"
         initial={{ opacity: 0 }}

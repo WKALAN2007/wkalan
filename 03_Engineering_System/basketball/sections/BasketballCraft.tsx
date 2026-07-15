@@ -31,60 +31,67 @@ const strengths = [
 
 export function BasketballCraft() {
   return (
-    <section id="craft" className="bg-[#0a0a0a] py-24 sm:py-36">
+    <section className="bg-[#0a0a0a] py-28 sm:py-36">
       <div className="mx-auto max-w-[1400px] px-6 sm:px-8">
-        {/* Section Header */}
+        {/* Section header */}
         <motion.div
-          className="mb-16 flex flex-col items-center gap-3 text-center"
+          className="mb-24"
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, margin: "-80px" }}
+          viewport={{ once: true }}
         >
           <motion.span
-            className="text-xs font-medium uppercase tracking-[0.25em] text-[#c9a84c]"
+            className="text-xs tracking-[0.2em] text-[#c9a84c]/50"
             variants={{
-              hidden: { opacity: 0, y: 16 },
-              visible: {
-                opacity: 1,
-                y: 0,
-                transition: { duration: 0.7, ease: [0.16, 1, 0.3, 1] },
-              },
+              hidden: { opacity: 0 },
+              visible: { opacity: 1, transition: { duration: 0.7 } },
             }}
           >
-            The Craft
+            第四章 · 技藝
           </motion.span>
-          <motion.div
-            className="h-[1px] w-12 bg-[#c9a84c]/40"
+          <motion.p
+            className="mt-6 font-heading text-3xl leading-[1.2] tracking-[-0.01em] text-white/80 sm:text-4xl"
             variants={{
-              hidden: { scaleX: 0 },
-              visible: {
-                scaleX: 1,
-                transition: { duration: 0.8, delay: 0.2, ease: [0.16, 1, 0.3, 1] },
-              },
+              hidden: { opacity: 0, y: 16 },
+              visible: { opacity: 1, y: 0, transition: { duration: 0.7, delay: 0.1 } },
             }}
-            style={{ transformOrigin: "center" }}
-          />
+          >
+            不只是剪接。
+            <br />
+            是理解比赛的方式。
+          </motion.p>
         </motion.div>
 
         {/* 6 Cards Grid */}
-        <div className="mx-auto grid max-w-5xl gap-0.5 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="mx-auto grid max-w-5xl gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {strengths.map((item, i) => (
             <motion.div
               key={item.title}
-              className="group border border-[#1a1a1a] bg-[#0d0d0d] p-6 transition-all duration-500 hover:border-[#c9a84c]/30 sm:p-8"
-              initial={{ opacity: 0, y: 30, scale: 0.97 }}
-              whileInView={{ opacity: 1, y: 0, scale: 1 }}
-              transition={{
-                duration: 0.7,
-                delay: 0.08 * i,
-                ease: [0.16, 1, 0.3, 1],
-              }}
+              className="group flex flex-col gap-4 border border-white/[0.06] bg-white/[0.03] p-6 backdrop-blur-sm transition-all duration-500 hover:border-[#c9a84c]/20 hover:bg-white/[0.05] sm:p-8"
+              initial="hidden"
+              whileInView="visible"
               viewport={{ once: true, margin: "-50px" }}
+              variants={{
+                hidden: { opacity: 0, y: 30, filter: "blur(4px)" },
+                visible: {
+                  opacity: 1,
+                  y: 0,
+                  filter: "blur(0px)",
+                  transition: {
+                    duration: 0.7,
+                    delay: 0.08 * i,
+                    ease: [0.16, 1, 0.3, 1],
+                  },
+                },
+              }}
             >
-              <h3 className="text-base font-bold text-white transition-colors duration-500 group-hover:text-[#c9a84c] sm:text-lg">
+              <span className="text-[10px] tracking-[0.2em] text-[#c9a84c]/40">
+                {String(i + 1).padStart(2, "0")}
+              </span>
+              <h3 className="text-lg font-bold text-white/85 transition-colors duration-500 group-hover:text-[#c9a84c]">
                 {item.title}
               </h3>
-              <p className="mt-3 text-sm leading-relaxed text-[#777777] transition-colors duration-500 group-hover:text-[#999999]">
+              <p className="text-sm leading-relaxed text-white/35 transition-colors duration-500 group-hover:text-white/50">
                 {item.desc}
               </p>
             </motion.div>
