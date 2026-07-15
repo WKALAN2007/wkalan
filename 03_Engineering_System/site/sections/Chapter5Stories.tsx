@@ -28,9 +28,17 @@ const stories = [
     objectPosition: "50% 50%" as const,
     noBanner: true,
   },
+  {
+    name: "North",
+    banner: "/north-banner.jpg",
+    href: "/north",
+    theme: "warm" as const,
+    objectPosition: "50% 50%" as const,
+    noBanner: true,
+  },
 ];
 
-// Duplicate for seamless infinite loop (3 stories × 4 = 12 cards)
+// Duplicate for seamless infinite loop (4 stories × 4 = 16 cards)
 const LOOP_STORIES = [...stories, ...stories, ...stories, ...stories];
 
 /* ─────────────────────────────────────────
