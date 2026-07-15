@@ -4,12 +4,12 @@ import { motion } from "framer-motion";
 import Link from "next/link";
 
 const downloads = [
-  { title: "Brand Guidelines", desc: "Logo usage, color specifications, typography, and brand voice.", size: "PDF · 2.4 MB" },
-  { title: "Press Kit", desc: "Company overview, founder bios, product screenshots, and key facts.", size: "ZIP · 8.1 MB" },
-  { title: "Logo Package", desc: "North logo in SVG, PNG, and EPS formats. Light and dark variants.", size: "ZIP · 1.2 MB" },
-  { title: "Product Screenshots", desc: "High-resolution product images for media use. Updated quarterly.", size: "ZIP · 12.5 MB" },
-  { title: "Founder Photography", desc: "Portrait and candid photography of the North founding team.", size: "ZIP · 15.3 MB" },
-  { title: "Fact Sheet", desc: "Key statistics, milestones, and company information. Updated January 2025.", size: "PDF · 0.8 MB" },
+  { title: "Brand Guidelines", desc: "Logo usage, color specifications, typography, and brand voice.", size: "PDF · 2.4 MB", file: "/downloads/north/brand-guidelines.html" },
+  { title: "Press Kit", desc: "Company overview, founder bios, product screenshots, and key facts.", size: "ZIP · 8.1 MB", file: "/downloads/north/press-kit.zip" },
+  { title: "Logo Package", desc: "North logo in SVG, PNG, and EPS formats. Light and dark variants.", size: "ZIP · 1.2 MB", file: "/downloads/north/logo-package.zip" },
+  { title: "Product Screenshots", desc: "High-resolution product images for media use. Updated quarterly.", size: "ZIP · 12.5 MB", file: "/downloads/north/product-screenshots.zip" },
+  { title: "Founder Photography", desc: "Portrait and candid photography of the North founding team.", size: "ZIP · 15.3 MB", file: "/downloads/north/founder-photography.zip" },
+  { title: "Fact Sheet", desc: "Key statistics, milestones, and company information. Updated January 2025.", size: "PDF · 0.8 MB", file: "/downloads/north/fact-sheet.html" },
 ];
 
 const press = [
@@ -53,7 +53,11 @@ export function NorthPressPage() {
           </motion.span>
           <div className="mt-10 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
             {downloads.map((item, i) => (
-              <motion.div key={item.title} className="group flex flex-col gap-3 border border-gray-200 p-6 transition-colors hover:border-gray-400"
+              <motion.a
+                key={item.title}
+                href={item.file}
+                download
+                className="group flex flex-col gap-3 border border-gray-200 p-6 transition-colors hover:border-gray-400 cursor-pointer no-underline"
                 style={{ borderRadius: "var(--radius-lg)" }}
                 initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-40px" }}
                 variants={{ hidden: { opacity: 0, y: 16 }, visible: { opacity: 1, y: 0, transition: { duration: 0.7, delay: 0.08 * i, ease: [0.16, 1, 0.3, 1] } } }}>
@@ -63,7 +67,7 @@ export function NorthPressPage() {
                   <span className="text-[10px] tracking-[0.08em] text-gray-400">{item.size}</span>
                   <span className="text-xs font-medium tracking-[0.06em] text-[var(--color-accent)] opacity-0 transition-opacity group-hover:opacity-100">Download →</span>
                 </div>
-              </motion.div>
+              </motion.a>
             ))}
           </div>
         </div>
