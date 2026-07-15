@@ -67,6 +67,10 @@ function injectKeyframes() {
   0%   { transform: translateX(0); }
   100% { transform: translateX(-50%); }
 }
+@keyframes auto-scroll-reverse {
+  0%   { transform: translateX(-50%); }
+  100% { transform: translateX(0); }
+}
 @keyframes auto-scroll-mobile {
   0%   { transform: translateX(0); }
   100% { transform: translateX(-50%); }
@@ -467,6 +471,21 @@ export function Chapter5Stories() {
           {LOOP_STORIES.map((story, i) => (
             <StoryCard key={`${story.name}-${i}`} story={story} index={i % 2} />
           ))}
+        </div>
+
+        {/* ── Reverse track ── */}
+        <div className="mt-8">
+          <div
+            className="flex gap-8"
+            style={{
+              width: "max-content",
+              animation: `auto-scroll-reverse 28s linear infinite`,
+            }}
+          >
+            {LOOP_STORIES.map((story, i) => (
+              <StoryCard key={`${story.name}-rev-${i}`} story={story} index={i % 2} />
+            ))}
+          </div>
         </div>
       </div>
 
