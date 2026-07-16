@@ -44,12 +44,20 @@ const stories = [
     objectPosition: "50% 50%" as const,
     noBanner: false,
   },
+  {
+    name: "Apparel",
+    banner: "/apparel/hero.jpg",
+    href: "/apparel",
+    theme: "cool" as const,
+    objectPosition: "50% 30%" as const,
+    noBanner: false,
+  },
 ];
 
-// Top row order: Content Creator → Start-up → Hospitality → Fashion → Photographer
-const topRow = [stories[2], stories[3], stories[4], stories[1], stories[0]];
-// Bottom row order: Fashion → Photographer → Content Creator → Hospitality → Start-up
-const bottomRow = [stories[1], stories[0], stories[2], stories[4], stories[3]];
+// Top row order: Content Creator → Start-up → Apparel → Hospitality → Fashion → Photographer
+const topRow = [stories[2], stories[3], stories[5], stories[4], stories[1], stories[0]];
+// Bottom row order: Fashion → Photographer → Content Creator → Hospitality → Apparel → Start-up
+const bottomRow = [stories[1], stories[0], stories[2], stories[4], stories[5], stories[3]];
 
 // Duplicate for seamless infinite loop
 const LOOP_TOP = [...topRow, ...topRow, ...topRow, ...topRow];

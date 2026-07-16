@@ -53,6 +53,9 @@ export function Footer() {
             <a href="/fashion" target="_blank" rel="noopener noreferrer" className="text-sm text-white/50 transition-colors hover:text-white/80">
               NKSEN
             </a>
+            <a href="/apparel" target="_blank" rel="noopener noreferrer" className="text-sm text-white/50 transition-colors hover:text-white/80">
+              MÉTIER
+            </a>
           </motion.div>
 
           {/* Contact */}
