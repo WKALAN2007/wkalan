@@ -19,6 +19,15 @@ export function HospitalityBooking() {
     setTimeout(() => setSubmitted(false), 4000);
   };
 
+  const fadeUp = (delay: number) => ({
+    hidden: { opacity: 0, y: 20 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.5, delay, ease: [0.16, 1, 0.3, 1] as const },
+    },
+  });
+
   return (
     <section
       id="booking"
@@ -29,21 +38,13 @@ export function HospitalityBooking() {
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, margin: "-80px" }}
-        variants={{
-          hidden: { opacity: 0, y: 24 },
-          visible: {
-            opacity: 1,
-            y: 0,
-            transition: { duration: 0.7, ease: [0.16, 1, 0.3, 1] },
-          },
-        }}
       >
         <form
           onSubmit={handleSubmit}
           className="flex flex-wrap items-end gap-4 justify-center"
         >
           {/* Check-in */}
-          <div className="flex flex-col gap-1.5">
+          <motion.div className="flex flex-col gap-1.5" variants={fadeUp(0)}>
             <label
               htmlFor="checkin"
               className="text-[10px] tracking-[0.15em] text-[var(--color-text-tertiary)]"
@@ -62,12 +63,12 @@ export function HospitalityBooking() {
                   setCheckOut(next.toISOString().split("T")[0]);
                 }
               }}
-              className="border-b border-[#D4D3CE] bg-transparent py-2 text-sm text-[#1A1A18] outline-none transition-colors focus:border-[var(--color-accent-dark)]"
+              className="border-b border-[#D4D3CE] bg-transparent py-2 text-sm text-[#1A1A18] outline-none transition-all duration-300 focus:border-[var(--color-accent-dark)] focus:shadow-[0_1px_0_var(--color-accent-dark)]"
             />
-          </div>
+          </motion.div>
 
           {/* Check-out */}
-          <div className="flex flex-col gap-1.5">
+          <motion.div className="flex flex-col gap-1.5" variants={fadeUp(0.1)}>
             <label
               htmlFor="checkout"
               className="text-[10px] tracking-[0.15em] text-[var(--color-text-tertiary)]"
@@ -80,12 +81,12 @@ export function HospitalityBooking() {
               value={checkOut}
               min={checkIn}
               onChange={(e) => setCheckOut(e.target.value)}
-              className="border-b border-[#D4D3CE] bg-transparent py-2 text-sm text-[#1A1A18] outline-none transition-colors focus:border-[var(--color-accent-dark)]"
+              className="border-b border-[#D4D3CE] bg-transparent py-2 text-sm text-[#1A1A18] outline-none transition-all duration-300 focus:border-[var(--color-accent-dark)] focus:shadow-[0_1px_0_var(--color-accent-dark)]"
             />
-          </div>
+          </motion.div>
 
           {/* Guests */}
-          <div className="flex flex-col gap-1.5">
+          <motion.div className="flex flex-col gap-1.5" variants={fadeUp(0.2)}>
             <label
               htmlFor="guests"
               className="text-[10px] tracking-[0.15em] text-[var(--color-text-tertiary)]"
@@ -96,7 +97,7 @@ export function HospitalityBooking() {
               id="guests"
               value={guests}
               onChange={(e) => setGuests(e.target.value)}
-              className="border-b border-[#D4D3CE] bg-transparent py-2 text-sm text-[#1A1A18] outline-none transition-colors focus:border-[var(--color-accent-dark)]"
+              className="border-b border-[#D4D3CE] bg-transparent py-2 text-sm text-[#1A1A18] outline-none transition-all duration-300 focus:border-[var(--color-accent-dark)]"
             >
               {[1, 2, 3, 4, 5, 6].map((n) => (
                 <option key={n} value={String(n)}>
@@ -104,10 +105,10 @@ export function HospitalityBooking() {
                 </option>
               ))}
             </select>
-          </div>
+          </motion.div>
 
           {/* Rooms */}
-          <div className="flex flex-col gap-1.5">
+          <motion.div className="flex flex-col gap-1.5" variants={fadeUp(0.3)}>
             <label
               htmlFor="rooms"
               className="text-[10px] tracking-[0.15em] text-[var(--color-text-tertiary)]"
@@ -118,7 +119,7 @@ export function HospitalityBooking() {
               id="rooms"
               value={rooms}
               onChange={(e) => setRooms(e.target.value)}
-              className="border-b border-[#D4D3CE] bg-transparent py-2 text-sm text-[#1A1A18] outline-none transition-colors focus:border-[var(--color-accent-dark)]"
+              className="border-b border-[#D4D3CE] bg-transparent py-2 text-sm text-[#1A1A18] outline-none transition-all duration-300 focus:border-[var(--color-accent-dark)]"
             >
               {[1, 2, 3, 4].map((n) => (
                 <option key={n} value={String(n)}>
@@ -126,15 +127,19 @@ export function HospitalityBooking() {
                 </option>
               ))}
             </select>
-          </div>
+          </motion.div>
 
           {/* Submit */}
-          <button
-            type="submit"
-            className="bg-[var(--color-accent-dark)] px-8 py-3 text-xs tracking-[0.12em] text-white transition-colors hover:bg-[#B8953D]"
-          >
-            CHECK AVAILABILITY
-          </button>
+          <motion.div variants={fadeUp(0.4)}>
+            <motion.button
+              type="submit"
+              className="bg-[var(--color-accent-dark)] px-8 py-3 text-xs tracking-[0.12em] text-white transition-colors hover:bg-[#B8953D]"
+              whileHover={{ scale: 1.03 }}
+              whileTap={{ scale: 0.97 }}
+            >
+              CHECK AVAILABILITY
+            </motion.button>
+          </motion.div>
         </form>
 
         {/* Success message */}

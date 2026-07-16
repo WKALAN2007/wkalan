@@ -13,8 +13,8 @@ export default function HospitalityPage() {
   return (
     <main>
       <HospitalityHero />
-      <HospitalityAccommodations />
       <HospitalityFeatured />
+      <HospitalityAccommodations />
       <HospitalityAbout />
       <HospitalityExperiences />
       <HospitalityStories />

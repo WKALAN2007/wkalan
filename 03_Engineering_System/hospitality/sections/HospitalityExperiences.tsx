@@ -1,5 +1,6 @@
 "use client";
 
+import { useCallback, useState } from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { experiences } from "../data";
@@ -40,46 +41,83 @@ export function HospitalityExperiences() {
         {/* Experience grid */}
         <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 sm:gap-6">
           {experienceList.map((exp, i) => (
-            <Link
-              key={exp.slug}
-              href={`/hospitality/experience/${exp.slug}`}
-              className="group relative aspect-square overflow-hidden no-underline"
-            >
-              <motion.div
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true, margin: "-60px" }}
-                variants={{
-                  hidden: { opacity: 0, y: 24 },
-                  visible: {
-                    opacity: 1,
-                    y: 0,
-                    transition: {
-                      duration: 0.6,
-                      delay: 0.06 * i,
-                      ease: [0.16, 1, 0.3, 1],
-                    },
-                  },
-                }}
-                className="h-full w-full"
-              >
-                <img
-                  src={exp.cardImage}
-                  alt={exp.name}
-                  className="h-full w-full object-cover transition-transform duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-105"
-                />
-                <div className="absolute inset-0 bg-black/0 transition-colors duration-500 group-hover:bg-black/40" />
-                <span className="absolute bottom-4 left-4 z-10 font-heading text-lg text-white/90 opacity-0 transition-opacity duration-500 group-hover:opacity-100">
-                  {exp.name}
-                </span>
-                <span className="absolute bottom-4 right-4 z-10 text-[10px] tracking-[0.12em] text-white/70 opacity-0 transition-all duration-500 group-hover:opacity-100">
-                  DISCOVER →
-                </span>
-              </motion.div>
-            </Link>
+            <ExperienceCard key={exp.slug} exp={exp} index={i} />
           ))}
         </div>
       </div>
     </section>
+  );
+}
+
+function ExperienceCard({
+  exp,
+  index,
+}: {
+  exp: (typeof experienceList)[0];
+  index: number;
+}) {
+  const [hovered, setHovered] = useState(false);
+
+  return (
+    <Link
+      key={exp.slug}
+      href={`/hospitality/experience/${exp.slug}`}
+      className="group relative aspect-square overflow-hidden no-underline"
+      onMouseEnter={() => setHovered(true)}
+      onMouseLeave={() => setHovered(false)}
+    >
+      <motion.div
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, margin: "-60px" }}
+        variants={{
+          hidden: { opacity: 0, y: 24 },
+          visible: {
+            opacity: 1,
+            y: 0,
+            transition: {
+              duration: 0.6,
+              delay: 0.06 * index,
+              ease: [0.16, 1, 0.3, 1],
+            },
+          },
+        }}
+        className="h-full w-full"
+      >
+        <motion.img
+          src={exp.cardImage}
+          alt={exp.name}
+          className="h-full w-full object-cover"
+          animate={{ scale: hovered ? 1.08 : 1 }}
+          transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+        />
+
+        {/* Overlay — fades in on hover */}
+        <motion.div
+          className="absolute inset-0 flex flex-col items-center justify-center p-6 text-center"
+          animate={{
+            background: hovered
+              ? "rgba(0,0,0,0.55)"
+              : "rgba(0,0,0,0.15)",
+          }}
+          transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+        >
+          <motion.span
+            className="font-heading text-lg text-white sm:text-xl"
+            animate={{ y: hovered ? 0 : 12, opacity: hovered ? 1 : 0 }}
+            transition={{ duration: 0.4, delay: 0.05, ease: [0.16, 1, 0.3, 1] }}
+          >
+            {exp.name}
+          </motion.span>
+          <motion.span
+            className="mt-3 text-[10px] tracking-[0.12em] text-white/70"
+            animate={{ y: hovered ? 0 : 8, opacity: hovered ? 1 : 0 }}
+            transition={{ duration: 0.4, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
+          >
+            DISCOVER →
+          </motion.span>
+        </motion.div>
+      </motion.div>
+    </Link>
   );
 }

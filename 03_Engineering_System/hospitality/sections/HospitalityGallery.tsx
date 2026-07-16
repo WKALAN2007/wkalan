@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
 const images = [
@@ -19,7 +19,9 @@ const images = [
 ];
 
 export function HospitalityGallery() {
-  const [selectedImage, setSelectedImage] = useState<string | null>(null);
+  const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
+
+  const selectedImage = selectedIndex !== null ? images[selectedIndex] : null;
 
   useEffect(() => {
     if (selectedImage) {
@@ -37,6 +39,32 @@ export function HospitalityGallery() {
       if (lenis) lenis.start();
     };
   }, [selectedImage]);
+
+  const goNext = useCallback(() => {
+    setSelectedIndex((prev) => {
+      if (prev === null) return null;
+      return (prev + 1) % images.length;
+    });
+  }, []);
+
+  const goPrev = useCallback(() => {
+    setSelectedIndex((prev) => {
+      if (prev === null) return null;
+      return (prev - 1 + images.length) % images.length;
+    });
+  }, []);
+
+  // Keyboard navigation
+  useEffect(() => {
+    const handleKey = (e: KeyboardEvent) => {
+      if (selectedIndex === null) return;
+      if (e.key === "ArrowRight") goNext();
+      if (e.key === "ArrowLeft") goPrev();
+      if (e.key === "Escape") setSelectedIndex(null);
+    };
+    window.addEventListener("keydown", handleKey);
+    return () => window.removeEventListener("keydown", handleKey);
+  }, [selectedIndex, goNext, goPrev]);
 
   return (
     <section id="gallery" className="bg-white py-28 sm:py-36">
@@ -68,79 +96,114 @@ export function HospitalityGallery() {
           </p>
         </motion.div>
 
-        {/* Masonry grid */}
-        <motion.div
-          className="columns-2 gap-4 sm:columns-3 sm:gap-5 lg:columns-4"
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-60px" }}
-          variants={{
-            hidden: { opacity: 0 },
-            visible: {
-              opacity: 1,
-              transition: {
-                duration: 0.7,
-                staggerChildren: 0.03,
-                ease: [0.16, 1, 0.3, 1],
-              },
-            },
-          }}
-        >
-          {images.map((img) => (
+        {/* Masonry grid with clip-path reveal */}
+        <div className="columns-2 gap-4 sm:columns-3 sm:gap-5 lg:columns-4">
+          {images.map((img, i) => (
             <motion.div
               key={img.src}
               className="mb-4 cursor-pointer overflow-hidden sm:mb-5"
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: "-60px" }}
               variants={{
-                hidden: { opacity: 0, y: 20 },
+                hidden: { opacity: 0, y: 30, clipPath: "inset(10% 0 10% 0)" },
                 visible: {
                   opacity: 1,
                   y: 0,
-                  transition: { duration: 0.5, ease: [0.16, 1, 0.3, 1] },
+                  clipPath: "inset(0% 0 0% 0)",
+                  transition: {
+                    duration: 0.7,
+                    delay: 0.04 * i,
+                    ease: [0.16, 1, 0.3, 1],
+                  },
                 },
               }}
-              onClick={() => setSelectedImage(img.src)}
+              onClick={() => setSelectedIndex(i)}
             >
-              <img
+              <motion.img
                 src={img.src}
                 alt={img.alt}
-                className="w-full transition-transform duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] hover:scale-105"
+                className="w-full"
                 loading="lazy"
+                whileHover={{ scale: 1.04 }}
+                transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
               />
             </motion.div>
           ))}
-        </motion.div>
+        </div>
       </div>
 
-      {/* Lightbox modal */}
+      {/* Lightbox modal with prev/next */}
       <AnimatePresence>
-        {selectedImage && (
+        {selectedImage && selectedIndex !== null && (
           <motion.div
-            className="fixed inset-0 z-[100] flex items-center justify-center bg-black/90 p-8"
+            className="fixed inset-0 z-[100] flex items-center justify-center bg-black/95"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.3 }}
-            onClick={() => setSelectedImage(null)}
+            onClick={() => setSelectedIndex(null)}
           >
             {/* Close button */}
             <button
-              onClick={() => setSelectedImage(null)}
-              className="absolute right-8 top-8 text-xs tracking-[0.15em] text-white/60 transition-colors hover:text-white"
+              onClick={() => setSelectedIndex(null)}
+              className="absolute right-6 top-6 z-10 text-xs tracking-[0.15em] text-white/60 transition-colors hover:text-white"
             >
               CLOSE
             </button>
 
+            {/* Counter */}
+            <div className="absolute left-6 top-6 z-10 text-xs tracking-[0.15em] text-white/40">
+              {selectedIndex + 1} / {images.length}
+            </div>
+
+            {/* Previous */}
+            <button
+              onClick={(e) => {
+                e.stopPropagation();
+                goPrev();
+              }}
+              className="absolute left-6 top-1/2 z-10 -translate-y-1/2 p-2 text-white/50 transition-colors hover:text-white"
+              aria-label="Previous image"
+            >
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+                <path d="M15 18l-6-6 6-6" />
+              </svg>
+            </button>
+
             {/* Image */}
             <motion.img
-              src={selectedImage}
-              alt=""
+              key={selectedIndex}
+              src={selectedImage.src}
+              alt={selectedImage.alt}
               className="max-h-[85vh] max-w-[90vw] object-contain"
-              initial={{ scale: 0.95, opacity: 0 }}
+              initial={{ scale: 0.92, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
-              exit={{ scale: 0.95, opacity: 0 }}
+              exit={{ scale: 0.92, opacity: 0 }}
               transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
               onClick={(e) => e.stopPropagation()}
             />
+
+            {/* Alt text */}
+            <div className="absolute bottom-8 left-1/2 -translate-x-1/2 text-center">
+              <p className="text-xs tracking-[0.08em] text-white/40">
+                {selectedImage.alt}
+              </p>
+            </div>
+
+            {/* Next */}
+            <button
+              onClick={(e) => {
+                e.stopPropagation();
+                goNext();
+              }}
+              className="absolute right-6 top-1/2 z-10 -translate-y-1/2 p-2 text-white/50 transition-colors hover:text-white"
+              aria-label="Next image"
+            >
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+                <path d="M9 18l6-6-6-6" />
+              </svg>
+            </button>
           </motion.div>
         )}
       </AnimatePresence>
