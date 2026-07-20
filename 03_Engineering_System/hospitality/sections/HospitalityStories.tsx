@@ -85,17 +85,17 @@ function StoryCard({ story, index }: { story: (typeof stories)[0]; index: number
           />
         </div>
         <div className="mt-4">
-          <span className="text-[10px] tracking-[0.15em] text-[var(--color-accent-dark)]">
+          <span className="text-[10px] tracking-[0.15em] text-[var(--wk-accent-dark)]">
             {story.label}
           </span>
           <h3 className="mt-1 font-heading text-lg leading-tight text-[#1A1A18]">
             {story.title}
           </h3>
-          <p className="mt-2 text-sm leading-relaxed text-[var(--color-text-secondary)]">
+          <p className="mt-2 text-sm leading-relaxed text-[var(--wk-text-secondary)]">
             {story.description.slice(0, 130)}...
           </p>
           <motion.span
-            className="mt-3 inline-flex items-center gap-2 text-xs tracking-[0.12em] text-[var(--color-accent-dark)]"
+            className="mt-3 inline-flex items-center gap-2 text-xs tracking-[0.12em] text-[var(--wk-accent-dark)]"
             animate={{ gap: hovered ? "12px" : "8px" }}
             transition={{ duration: 0.3 }}
           >
@@ -129,7 +129,7 @@ export function HospitalityStories() {
             },
           }}
         >
-          <span className="text-xs tracking-[0.2em] text-[var(--color-accent-dark)]">
+          <span className="text-xs tracking-[0.2em] text-[var(--wk-accent-dark)]">
             STORIES
           </span>
           <h2 className="mt-4 font-heading text-3xl tracking-[-0.01em] text-[#1A1A18] sm:text-4xl">

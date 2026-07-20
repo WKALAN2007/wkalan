@@ -22,12 +22,22 @@ export function TheProcess() {
           <motion.span
             className="text-xs font-medium uppercase tracking-[0.2em] text-[var(--wk-text-tertiary)]"
             variants={{
-              hidden: { opacity: 0, y: 16 },
-              visible: { opacity: 1, y: 0, transition: { duration: 0.7, ease: [0.16, 1, 0.3, 1] } },
+              hidden: { opacity: 0, y: 12 },
+              visible: { opacity: 1, y: 0, transition: { duration: 0.4, ease: [0.16, 1, 0.3, 1] } },
             }}
           >
             怎么做
           </motion.span>
+          <motion.h2
+            className="font-[var(--font-display)] text-[var(--text-h2)] leading-[var(--leading-tight)] tracking-[-0.015em] text-[var(--wk-text-primary)]"
+            style={{ fontFamily: "var(--font-display)" }}
+            variants={{
+              hidden: { opacity: 0, y: 24 },
+              visible: { opacity: 1, y: 0, transition: { duration: 0.5, delay: 0.1, ease: [0.16, 1, 0.3, 1] } },
+            }}
+          >
+            围绕你而建。
+          </motion.h2>
         </motion.div>
 
         <div className="mx-auto max-w-2xl">
@@ -43,7 +53,7 @@ export function TheProcess() {
                 visible: {
                   opacity: 1,
                   y: 0,
-                  transition: { duration: 0.7, delay: 0.1 * i, ease: [0.16, 1, 0.3, 1] },
+                  transition: { duration: 0.5, delay: 0.08 * i, ease: [0.16, 1, 0.3, 1] },
                 },
               }}
             >

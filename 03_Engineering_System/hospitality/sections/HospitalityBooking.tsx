@@ -47,7 +47,7 @@ export function HospitalityBooking() {
           <motion.div className="flex flex-col gap-1.5" variants={fadeUp(0)}>
             <label
               htmlFor="checkin"
-              className="text-[10px] tracking-[0.15em] text-[var(--color-text-tertiary)]"
+              className="text-[10px] tracking-[0.15em] text-[var(--wk-text-tertiary)]"
             >
               CHECK IN
             </label>
@@ -63,7 +63,7 @@ export function HospitalityBooking() {
                   setCheckOut(next.toISOString().split("T")[0]);
                 }
               }}
-              className="border-b border-[#D4D3CE] bg-transparent py-2 text-sm text-[#1A1A18] outline-none transition-all duration-300 focus:border-[var(--color-accent-dark)] focus:shadow-[0_1px_0_var(--color-accent-dark)]"
+              className="border-b border-[#D4D3CE] bg-transparent py-2 text-sm text-[#1A1A18] outline-none transition-all duration-300 focus:border-[var(--wk-accent-dark)] focus:shadow-[0_1px_0_var(--wk-accent-dark)]"
             />
           </motion.div>
 
@@ -71,7 +71,7 @@ export function HospitalityBooking() {
           <motion.div className="flex flex-col gap-1.5" variants={fadeUp(0.1)}>
             <label
               htmlFor="checkout"
-              className="text-[10px] tracking-[0.15em] text-[var(--color-text-tertiary)]"
+              className="text-[10px] tracking-[0.15em] text-[var(--wk-text-tertiary)]"
             >
               CHECK OUT
             </label>
@@ -81,7 +81,7 @@ export function HospitalityBooking() {
               value={checkOut}
               min={checkIn}
               onChange={(e) => setCheckOut(e.target.value)}
-              className="border-b border-[#D4D3CE] bg-transparent py-2 text-sm text-[#1A1A18] outline-none transition-all duration-300 focus:border-[var(--color-accent-dark)] focus:shadow-[0_1px_0_var(--color-accent-dark)]"
+              className="border-b border-[#D4D3CE] bg-transparent py-2 text-sm text-[#1A1A18] outline-none transition-all duration-300 focus:border-[var(--wk-accent-dark)] focus:shadow-[0_1px_0_var(--wk-accent-dark)]"
             />
           </motion.div>
 
@@ -89,7 +89,7 @@ export function HospitalityBooking() {
           <motion.div className="flex flex-col gap-1.5" variants={fadeUp(0.2)}>
             <label
               htmlFor="guests"
-              className="text-[10px] tracking-[0.15em] text-[var(--color-text-tertiary)]"
+              className="text-[10px] tracking-[0.15em] text-[var(--wk-text-tertiary)]"
             >
               GUESTS
             </label>
@@ -97,7 +97,7 @@ export function HospitalityBooking() {
               id="guests"
               value={guests}
               onChange={(e) => setGuests(e.target.value)}
-              className="border-b border-[#D4D3CE] bg-transparent py-2 text-sm text-[#1A1A18] outline-none transition-all duration-300 focus:border-[var(--color-accent-dark)]"
+              className="border-b border-[#D4D3CE] bg-transparent py-2 text-sm text-[#1A1A18] outline-none transition-all duration-300 focus:border-[var(--wk-accent-dark)]"
             >
               {[1, 2, 3, 4, 5, 6].map((n) => (
                 <option key={n} value={String(n)}>
@@ -111,7 +111,7 @@ export function HospitalityBooking() {
           <motion.div className="flex flex-col gap-1.5" variants={fadeUp(0.3)}>
             <label
               htmlFor="rooms"
-              className="text-[10px] tracking-[0.15em] text-[var(--color-text-tertiary)]"
+              className="text-[10px] tracking-[0.15em] text-[var(--wk-text-tertiary)]"
             >
               ROOMS
             </label>
@@ -119,7 +119,7 @@ export function HospitalityBooking() {
               id="rooms"
               value={rooms}
               onChange={(e) => setRooms(e.target.value)}
-              className="border-b border-[#D4D3CE] bg-transparent py-2 text-sm text-[#1A1A18] outline-none transition-all duration-300 focus:border-[var(--color-accent-dark)]"
+              className="border-b border-[#D4D3CE] bg-transparent py-2 text-sm text-[#1A1A18] outline-none transition-all duration-300 focus:border-[var(--wk-accent-dark)]"
             >
               {[1, 2, 3, 4].map((n) => (
                 <option key={n} value={String(n)}>
@@ -133,7 +133,7 @@ export function HospitalityBooking() {
           <motion.div variants={fadeUp(0.4)}>
             <motion.button
               type="submit"
-              className="bg-[var(--color-accent-dark)] px-8 py-3 text-xs tracking-[0.12em] text-white transition-colors hover:bg-[#B8953D]"
+              className="bg-[var(--wk-accent-dark)] px-8 py-3 text-xs tracking-[0.12em] text-white transition-colors hover:bg-[#B8953D]"
               whileHover={{ scale: 1.03 }}
               whileTap={{ scale: 0.97 }}
             >
@@ -145,7 +145,7 @@ export function HospitalityBooking() {
         {/* Success message */}
         {submitted && (
           <motion.p
-            className="mt-6 text-center text-xs tracking-[0.08em] text-[var(--color-accent-dark)]"
+            className="mt-6 text-center text-xs tracking-[0.08em] text-[var(--wk-accent-dark)]"
             initial={{ opacity: 0, y: 8 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0 }}

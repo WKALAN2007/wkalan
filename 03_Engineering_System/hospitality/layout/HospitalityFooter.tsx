@@ -25,7 +25,7 @@ export function HospitalityFooter() {
       <div className="mx-auto grid max-w-[var(--container-max)] grid-cols-2 gap-10 px-[var(--container-padding)] py-20 sm:grid-cols-4">
         {/* Brand column */}
         <div className="col-span-2 sm:col-span-1">
-          <span className="font-heading text-xl tracking-[0.04em] text-[var(--color-accent-dark)]">
+          <span className="font-heading text-xl tracking-[0.04em] text-[var(--wk-accent-dark)]">
             AURELIA
           </span>
           <p className="mt-3 max-w-[200px] text-xs leading-relaxed text-white/40">
@@ -37,7 +37,7 @@ export function HospitalityFooter() {
         {/* Link columns */}
         {Object.entries(sitemap).map(([title, links]) => (
           <div key={title}>
-            <span className="text-[11px] font-medium uppercase tracking-[0.1em] text-[var(--color-accent-dark)]/60">
+            <span className="text-[11px] font-medium uppercase tracking-[0.1em] text-[var(--wk-accent-dark)]/60">
               {title}
             </span>
             <ul className="mt-4 flex flex-col gap-2.5">

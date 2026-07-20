@@ -25,7 +25,7 @@ export function HospitalityOffers() {
             },
           }}
         >
-          <span className="text-xs tracking-[0.2em] text-[var(--color-accent-dark)]">
+          <span className="text-xs tracking-[0.2em] text-[var(--wk-accent-dark)]">
             OFFERS
           </span>
           <h2 className="mt-4 font-heading text-3xl tracking-[-0.01em] text-[#1A1A18] sm:text-4xl">
@@ -147,7 +147,7 @@ function OfferCard({
           {offer.description.slice(0, 160)}...
         </motion.p>
         <motion.span
-          className="mt-4 inline-flex items-center gap-2 text-xs tracking-[0.12em] text-[var(--color-accent-dark)]"
+          className="mt-4 inline-flex items-center gap-2 text-xs tracking-[0.12em] text-[var(--wk-accent-dark)]"
           animate={{ gap: hovered ? "12px" : "8px" }}
           transition={{ duration: 0.3 }}
         >

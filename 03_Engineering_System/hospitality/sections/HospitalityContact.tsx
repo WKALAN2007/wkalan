@@ -64,7 +64,7 @@ export function HospitalityContact() {
             },
           }}
         >
-          <span className="text-xs tracking-[0.2em] text-[var(--color-accent-dark)]">
+          <span className="text-xs tracking-[0.2em] text-[var(--wk-accent-dark)]">
             CONTACT
           </span>
           <h2 className="mt-4 font-heading text-3xl tracking-[-0.01em] text-[#1A1A18] sm:text-4xl">
@@ -93,7 +93,7 @@ export function HospitalityContact() {
             <div className="flex flex-col gap-1.5">
               <label
                 htmlFor="name"
-                className="text-[10px] tracking-[0.15em] text-[var(--color-text-tertiary)]"
+                className="text-[10px] tracking-[0.15em] text-[var(--wk-text-tertiary)]"
               >
                 NAME
               </label>
@@ -116,7 +116,7 @@ export function HospitalityContact() {
             <div className="flex flex-col gap-1.5">
               <label
                 htmlFor="email"
-                className="text-[10px] tracking-[0.15em] text-[var(--color-text-tertiary)]"
+                className="text-[10px] tracking-[0.15em] text-[var(--wk-text-tertiary)]"
               >
                 EMAIL
               </label>
@@ -139,7 +139,7 @@ export function HospitalityContact() {
             <div className="flex flex-col gap-1.5">
               <label
                 htmlFor="message"
-                className="text-[10px] tracking-[0.15em] text-[var(--color-text-tertiary)]"
+                className="text-[10px] tracking-[0.15em] text-[var(--wk-text-tertiary)]"
               >
                 MESSAGE
               </label>
@@ -163,7 +163,7 @@ export function HospitalityContact() {
             {/* Submit */}
             <button
               type="submit"
-              className="self-start bg-[var(--color-accent-dark)] px-8 py-3 text-xs tracking-[0.12em] text-white transition-colors hover:bg-[#B8953D]"
+              className="self-start bg-[var(--wk-accent-dark)] px-8 py-3 text-xs tracking-[0.12em] text-white transition-colors hover:bg-[#B8953D]"
             >
               SEND MESSAGE
             </button>
@@ -171,7 +171,7 @@ export function HospitalityContact() {
             {/* Success */}
             {submitted && (
               <motion.p
-                className="text-xs tracking-[0.08em] text-[var(--color-accent-dark)]"
+                className="text-xs tracking-[0.08em] text-[var(--wk-accent-dark)]"
                 initial={{ opacity: 0, y: 8 }}
                 animate={{ opacity: 1, y: 0 }}
               >
@@ -196,12 +196,12 @@ export function HospitalityContact() {
             }}
           >
             <div>
-              <span className="text-[10px] tracking-[0.15em] text-[var(--color-accent-dark)]">
+              <span className="text-[10px] tracking-[0.15em] text-[var(--wk-accent-dark)]">
                 VISIT US
               </span>
               <div className="mt-6 space-y-5">
                 <div>
-                  <p className="text-[11px] tracking-[0.08em] text-[var(--color-text-tertiary)]">
+                  <p className="text-[11px] tracking-[0.08em] text-[var(--wk-text-tertiary)]">
                     ADDRESS
                   </p>
                   <p className="mt-1 text-sm leading-relaxed text-[#1A1A18]">
@@ -213,7 +213,7 @@ export function HospitalityContact() {
                   </p>
                 </div>
                 <div>
-                  <p className="text-[11px] tracking-[0.08em] text-[var(--color-text-tertiary)]">
+                  <p className="text-[11px] tracking-[0.08em] text-[var(--wk-text-tertiary)]">
                     PHONE
                   </p>
                   <p className="mt-1 text-sm text-[#1A1A18]">
@@ -221,7 +221,7 @@ export function HospitalityContact() {
                   </p>
                 </div>
                 <div>
-                  <p className="text-[11px] tracking-[0.08em] text-[var(--color-text-tertiary)]">
+                  <p className="text-[11px] tracking-[0.08em] text-[var(--wk-text-tertiary)]">
                     EMAIL
                   </p>
                   <p className="mt-1 text-sm text-[#1A1A18]">
@@ -229,7 +229,7 @@ export function HospitalityContact() {
                   </p>
                 </div>
                 <div>
-                  <p className="text-[11px] tracking-[0.08em] text-[var(--color-text-tertiary)]">
+                  <p className="text-[11px] tracking-[0.08em] text-[var(--wk-text-tertiary)]">
                     CHECK-IN / CHECK-OUT
                   </p>
                   <p className="mt-1 text-sm text-[#1A1A18]">

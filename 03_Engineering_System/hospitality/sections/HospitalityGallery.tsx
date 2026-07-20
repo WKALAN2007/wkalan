@@ -84,13 +84,13 @@ export function HospitalityGallery() {
             },
           }}
         >
-          <span className="text-xs tracking-[0.2em] text-[var(--color-accent-dark)]">
+          <span className="text-xs tracking-[0.2em] text-[var(--wk-accent-dark)]">
             GALLERY
           </span>
           <h2 className="mt-4 font-heading text-3xl tracking-[-0.01em] text-[#1A1A18] sm:text-4xl">
             Through the Lens
           </h2>
-          <p className="mx-auto mt-4 max-w-lg text-sm leading-relaxed text-[var(--color-text-secondary)]">
+          <p className="mx-auto mt-4 max-w-lg text-sm leading-relaxed text-[var(--wk-text-secondary)]">
             A glimpse into the spaces, textures, and moments that define the
             Aurelia experience.
           </p>

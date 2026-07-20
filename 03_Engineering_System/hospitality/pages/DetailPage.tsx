@@ -59,7 +59,7 @@ export function DetailPage({
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
         >
-          <span className="text-xs tracking-[0.25em] text-[var(--color-accent-dark)]">
+          <span className="text-xs tracking-[0.25em] text-[var(--wk-accent-dark)]">
             {label}
           </span>
           <h1 className="font-heading text-4xl leading-[1.1] tracking-[-0.01em] text-white sm:text-6xl md:text-7xl">
@@ -84,7 +84,7 @@ export function DetailPage({
           <div className="mx-auto flex max-w-[var(--container-max)] flex-wrap justify-center gap-8 px-[var(--container-padding)] py-6 sm:gap-16">
             {meta.map((m) => (
               <div key={m.label} className="text-center">
-                <p className="text-[10px] tracking-[0.12em] text-[var(--color-text-tertiary)]">
+                <p className="text-[10px] tracking-[0.12em] text-[var(--wk-text-tertiary)]">
                   {m.label}
                 </p>
                 <p className="mt-1 text-sm text-[#1A1A18]">{m.value}</p>
@@ -101,7 +101,7 @@ export function DetailPage({
             {highlights.map((h) => (
               <span
                 key={h}
-                className="border border-[var(--color-accent-dark)]/20 px-4 py-1.5 text-[10px] tracking-[0.1em] text-[var(--color-accent-dark)]"
+                className="border border-[var(--wk-accent-dark)]/20 px-4 py-1.5 text-[10px] tracking-[0.1em] text-[var(--wk-accent-dark)]"
               >
                 {h}
               </span>
@@ -126,13 +126,13 @@ export function DetailPage({
             },
           }}
         >
-          <span className="text-xs tracking-[0.2em] text-[var(--color-accent-dark)]">
+          <span className="text-xs tracking-[0.2em] text-[var(--wk-accent-dark)]">
             DETAILS
           </span>
           {description.split("\n\n").map((paragraph, i) => (
             <p
               key={i}
-              className="mt-6 text-sm leading-relaxed text-[var(--color-text-secondary)] sm:text-base"
+              className="mt-6 text-sm leading-relaxed text-[var(--wk-text-secondary)] sm:text-base"
             >
               {paragraph}
             </p>
@@ -157,7 +157,7 @@ export function DetailPage({
               },
             }}
           >
-            <span className="text-xs tracking-[0.2em] text-[var(--color-accent-dark)]">
+            <span className="text-xs tracking-[0.2em] text-[var(--wk-accent-dark)]">
               GALLERY
             </span>
           </motion.div>
@@ -210,7 +210,7 @@ export function DetailPage({
             },
           }}
         >
-          <span className="text-xs tracking-[0.2em] text-[var(--color-accent-dark)]">
+          <span className="text-xs tracking-[0.2em] text-[var(--wk-accent-dark)]">
             BEGIN YOUR JOURNEY
           </span>
           <h2 className="mt-4 font-heading text-2xl tracking-[-0.01em] text-white sm:text-3xl">
@@ -218,7 +218,7 @@ export function DetailPage({
           </h2>
           <a
             href="/hospitality#accommodations"
-            className="mt-6 inline-block border border-[var(--color-accent-dark)] px-8 py-3 text-xs tracking-[0.15em] text-[var(--color-accent-dark)] no-underline transition-colors hover:bg-[var(--color-accent-dark)] hover:text-white"
+            className="mt-6 inline-block border border-[var(--wk-accent-dark)] px-8 py-3 text-xs tracking-[0.15em] text-[var(--wk-accent-dark)] no-underline transition-colors hover:bg-[var(--wk-accent-dark)] hover:text-white"
           >
             EXPLORE PROPERTIES
           </a>

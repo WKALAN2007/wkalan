@@ -30,7 +30,7 @@ export function HospitalityAbout() {
         <div className="flex items-center lg:w-1/2">
           <div className="px-8 py-16 sm:px-16 lg:py-24">
             <motion.span
-              className="text-xs tracking-[0.2em] text-[var(--color-accent-dark)]"
+              className="text-xs tracking-[0.2em] text-[var(--wk-accent-dark)]"
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true, margin: "-80px" }}
@@ -65,7 +65,7 @@ export function HospitalityAbout() {
 
             <div className="mt-8 space-y-5">
               <motion.p
-                className="text-sm leading-relaxed text-[var(--color-text-secondary)] sm:text-base"
+                className="text-sm leading-relaxed text-[var(--wk-text-secondary)] sm:text-base"
                 initial="hidden"
                 whileInView="visible"
                 viewport={{ once: true, margin: "-60px" }}
@@ -85,7 +85,7 @@ export function HospitalityAbout() {
                 and the quiet confidence of a place that knows exactly who it is.
               </motion.p>
               <motion.p
-                className="text-sm leading-relaxed text-[var(--color-text-secondary)] sm:text-base"
+                className="text-sm leading-relaxed text-[var(--wk-text-secondary)] sm:text-base"
                 initial="hidden"
                 whileInView="visible"
                 viewport={{ once: true, margin: "-60px" }}
@@ -108,7 +108,7 @@ export function HospitalityAbout() {
 
             {/* Quote with border reveal */}
             <motion.blockquote
-              className="mt-10 border-l-2 border-[var(--color-accent-dark)]/30 pl-6 overflow-hidden"
+              className="mt-10 border-l-2 border-[var(--wk-accent-dark)]/30 pl-6 overflow-hidden"
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true, margin: "-60px" }}
@@ -149,7 +149,7 @@ export function HospitalityAbout() {
                   .getElementById("experiences")
                   ?.scrollIntoView({ behavior: "smooth" });
               }}
-              className="mt-8 inline-flex items-center gap-2 text-xs tracking-[0.12em] text-[var(--color-accent-dark)] no-underline transition-all hover:gap-3"
+              className="mt-8 inline-flex items-center gap-2 text-xs tracking-[0.12em] text-[var(--wk-accent-dark)] no-underline transition-all hover:gap-3"
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true, margin: "-40px" }}

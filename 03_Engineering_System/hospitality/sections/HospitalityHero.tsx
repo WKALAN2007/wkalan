@@ -199,7 +199,7 @@ export function HospitalityHero() {
                   .getElementById("accommodations")
                   ?.scrollIntoView({ behavior: "smooth" });
               }}
-              className="mt-4 inline-block border border-[var(--color-accent-dark)] px-8 py-3 text-xs tracking-[0.15em] text-[var(--color-accent-dark)] no-underline transition-colors hover:bg-[var(--color-accent-dark)] hover:text-white"
+              className="mt-4 inline-block border border-[var(--wk-accent-dark)] px-8 py-3 text-xs tracking-[0.15em] text-[var(--wk-accent-dark)] no-underline transition-colors hover:bg-[var(--wk-accent-dark)] hover:text-white"
               variants={{
                 hidden: { opacity: 0, y: 16 },
                 visible: {

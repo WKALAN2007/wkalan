@@ -31,7 +31,7 @@ export function HospitalityFeatured() {
             style={{ scale: textScale, opacity: textOpacity }}
           >
             <motion.span
-              className="text-[10px] tracking-[0.2em] text-[var(--color-accent-dark)]"
+              className="text-[10px] tracking-[0.2em] text-[var(--wk-accent-dark)]"
               initial={{ opacity: 0, y: 12 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -61,7 +61,7 @@ export function HospitalityFeatured() {
             </motion.p>
             <motion.a
               href="/hospitality/suites"
-              className="mt-4 inline-block border border-[var(--color-accent-dark)] px-8 py-3 text-xs tracking-[0.15em] text-[var(--color-accent-dark)] no-underline transition-colors hover:bg-[var(--color-accent-dark)] hover:text-white"
+              className="mt-4 inline-block border border-[var(--wk-accent-dark)] px-8 py-3 text-xs tracking-[0.15em] text-[var(--wk-accent-dark)] no-underline transition-colors hover:bg-[var(--wk-accent-dark)] hover:text-white"
               initial={{ opacity: 0, y: 16 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}

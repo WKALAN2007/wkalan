@@ -21,7 +21,10 @@ const tiers = [
 
 export function TheInvitation() {
   return (
-    <section className="bg-neutral-900 py-[var(--space-section-lg)]" id="pricing">
+    <section
+      className="bg-[var(--wk-bg-dark)] py-[var(--space-section-lg)]"
+      id="pricing"
+    >
       <div className="mx-auto max-w-[var(--container-max)] px-[var(--container-padding)]">
         <motion.div
           className="flex flex-col items-center gap-16"
@@ -31,28 +34,41 @@ export function TheInvitation() {
         >
           <div className="flex flex-col items-center gap-4 text-center">
             <motion.span
-              className="text-xs font-medium uppercase tracking-[0.2em] text-neutral-400"
+              className="text-xs font-medium uppercase tracking-[0.2em] text-[var(--wk-text-tertiary)]"
               variants={{
                 hidden: { opacity: 0, y: 16 },
-                visible: { opacity: 1, y: 0, transition: { duration: 0.7, ease: [0.16, 1, 0.3, 1] } },
+                visible: {
+                  opacity: 1,
+                  y: 0,
+                  transition: { duration: 0.4, ease: [0.16, 1, 0.3, 1] },
+                },
               }}
             >
               定价
             </motion.span>
             <motion.h2
-              className="mt-4 font-bold text-[var(--text-h2)] leading-[1.15] tracking-[-0.02em] text-white"
+              className="mt-4 font-[var(--font-display)] text-[var(--text-h2)] leading-[1.15] tracking-[-0.015em] text-[var(--wk-text-inverse)]"
+              style={{ fontFamily: "var(--font-display)" }}
               variants={{
                 hidden: { opacity: 0, y: 24 },
-                visible: { opacity: 1, y: 0, transition: { duration: 0.8, delay: 0.3, ease: [0.16, 1, 0.3, 1] } },
+                visible: {
+                  opacity: 1,
+                  y: 0,
+                  transition: { duration: 0.5, delay: 0.1, ease: [0.16, 1, 0.3, 1] },
+                },
               }}
             >
               简单。透明。
             </motion.h2>
             <motion.p
-              className="mt-2 max-w-md text-sm leading-relaxed text-neutral-400"
+              className="mt-2 max-w-md text-sm leading-relaxed text-[var(--wk-text-tertiary)]"
               variants={{
                 hidden: { opacity: 0, y: 24 },
-                visible: { opacity: 1, y: 0, transition: { duration: 0.8, delay: 0.4, ease: [0.16, 1, 0.3, 1] } },
+                visible: {
+                  opacity: 1,
+                  y: 0,
+                  transition: { duration: 0.4, delay: 0.15, ease: [0.16, 1, 0.3, 1] },
+                },
               }}
             >
               从一次对话开始。一小时。聊聊你。
@@ -64,23 +80,29 @@ export function TheInvitation() {
               <motion.a
                 key={tier.name}
                 href={tier.href}
-                className="group flex flex-col items-center gap-4 border border-neutral-800 bg-neutral-800/50 p-8 text-center transition-all duration-500 hover:border-neutral-600 hover:bg-neutral-800"
+                className="group flex flex-col items-center gap-4 border border-[var(--wk-border-dark)] bg-[var(--wk-surface-dark)] p-8 text-center transition-all duration-500 hover:border-[var(--wk-accent)]/30"
                 variants={{
                   hidden: { opacity: 0, y: 32 },
                   visible: {
                     opacity: 1,
                     y: 0,
-                    transition: { duration: 0.7, delay: 0.5 + 0.1 * i, ease: [0.16, 1, 0.3, 1] },
+                    transition: { duration: 0.5, delay: 0.25 + 0.08 * i, ease: [0.16, 1, 0.3, 1] },
                   },
                 }}
               >
-                <span className="text-xs font-medium uppercase tracking-[0.2em] text-neutral-400">
+                <span className="text-xs font-medium uppercase tracking-[0.2em] text-[var(--wk-text-tertiary)]">
                   {tier.name}
                 </span>
-                <span className="font-bold text-3xl text-white">{tier.price}</span>
-                <span className="text-xs tracking-[0.15em] text-neutral-500">{tier.timeline}</span>
-                <p className="text-sm leading-relaxed text-neutral-400">{tier.desc}</p>
-                <span className="mt-2 inline-flex items-center gap-1 text-xs font-medium uppercase tracking-[0.15em] text-white transition-all group-hover:gap-2">
+                <span className="font-bold text-3xl text-[var(--wk-text-inverse)]">
+                  {tier.price}
+                </span>
+                <span className="text-xs tracking-[0.15em] text-[var(--wk-text-tertiary)]">
+                  {tier.timeline}
+                </span>
+                <p className="text-sm leading-relaxed text-[var(--wk-text-tertiary)]">
+                  {tier.desc}
+                </p>
+                <span className="mt-2 inline-flex items-center gap-1 text-xs font-medium uppercase tracking-[0.15em] text-[var(--wk-text-inverse)] transition-all group-hover:gap-2">
                   预约对话 <span>→</span>
                 </span>
               </motion.a>

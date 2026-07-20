@@ -105,17 +105,17 @@ function PropertyCard({ property, index }: { property: (typeof properties)[0]; i
           </div>
         </motion.div>
         <div className="mt-4">
-          <h3 className="font-heading text-xl text-[#1A1A18] border-b border-[var(--color-accent-dark)]/30 pb-2">
+          <h3 className="font-heading text-xl text-[#1A1A18] border-b border-[var(--wk-accent-dark)]/30 pb-2">
             {property.name}
           </h3>
-          <p className="mt-1 text-xs tracking-[0.08em] text-[var(--color-text-tertiary)]">
+          <p className="mt-1 text-xs tracking-[0.08em] text-[var(--wk-text-tertiary)]">
             {property.location}
           </p>
-          <p className="mt-2 text-sm leading-relaxed text-[var(--color-text-secondary)]">
+          <p className="mt-2 text-sm leading-relaxed text-[var(--wk-text-secondary)]">
             {property.tagline}
           </p>
           <motion.span
-            className="mt-3 inline-flex items-center gap-2 text-xs tracking-[0.12em] text-[var(--color-accent-dark)]"
+            className="mt-3 inline-flex items-center gap-2 text-xs tracking-[0.12em] text-[var(--wk-accent-dark)]"
             animate={{ gap: hovered ? "12px" : "8px" }}
             transition={{ duration: 0.3 }}
           >
@@ -148,7 +148,7 @@ export function HospitalityAccommodations() {
             },
           }}
         >
-          <span className="text-xs tracking-[0.2em] text-[var(--color-accent-dark)]">
+          <span className="text-xs tracking-[0.2em] text-[var(--wk-accent-dark)]">
             YOUR NEXT VACATION
           </span>
           <h2 className="mt-4 font-heading text-3xl tracking-[-0.01em] text-[#1A1A18] sm:text-4xl">

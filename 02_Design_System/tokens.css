@@ -45,8 +45,8 @@
      All Geist. Clean sans-serif. One consistent voice.
   ─────────────────────────────────────────────────────────── */
 
-  --font-display: "Geist", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", -apple-system, BlinkMacSystemFont, sans-serif;
-  --font-body: "Geist", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-display: "Noto Serif SC", "Source Han Serif SC", "Songti SC", var(--font-display), "PingFang SC", "Hiragino Sans GB", serif;
+  --font-body: "Geist", var(--font-geist-sans), "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", -apple-system, BlinkMacSystemFont, sans-serif;
   --font-mono: "Geist Mono", "SF Mono", "Cascadia Code", "Fira Code", monospace;
 
   /* Type Scale — 1.25 modular */

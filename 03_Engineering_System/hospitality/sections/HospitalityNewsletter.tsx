@@ -49,7 +49,7 @@ export function HospitalityNewsletter() {
           }}
         >
           <motion.span
-            className="text-xs tracking-[0.2em] text-[var(--color-accent-dark)]"
+            className="text-xs tracking-[0.2em] text-[var(--wk-accent-dark)]"
             variants={{
               hidden: { opacity: 0, y: 12 },
               visible: {
@@ -108,11 +108,11 @@ export function HospitalityNewsletter() {
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               placeholder="Your email address"
-              className="flex-1 border-b border-white/20 bg-transparent py-3 text-sm text-white outline-none transition-colors placeholder:text-white/30 focus:border-[var(--color-accent-dark)]"
+              className="flex-1 border-b border-white/20 bg-transparent py-3 text-sm text-white outline-none transition-colors placeholder:text-white/30 focus:border-[var(--wk-accent-dark)]"
             />
             <motion.button
               type="submit"
-              className="bg-[var(--color-accent-dark)] px-6 py-3 text-xs tracking-[0.12em] text-white transition-colors hover:bg-[#B8953D] sm:px-8"
+              className="bg-[var(--wk-accent-dark)] px-6 py-3 text-xs tracking-[0.12em] text-white transition-colors hover:bg-[#B8953D] sm:px-8"
               whileTap={{ scale: 0.97 }}
               whileHover={{ scale: 1.02 }}
             >
@@ -141,7 +141,7 @@ export function HospitalityNewsletter() {
                 >
                   <motion.path
                     d="M3 8l3.5 3.5L13 5"
-                    stroke="var(--color-accent-dark)"
+                    stroke="var(--wk-accent-dark)"
                     strokeWidth="1.5"
                     strokeLinecap="round"
                     strokeLinejoin="round"
@@ -150,7 +150,7 @@ export function HospitalityNewsletter() {
                     transition={{ duration: 0.5, delay: 0.15 }}
                   />
                 </motion.svg>
-                <p className="text-xs tracking-[0.08em] text-[var(--color-accent-dark)]">
+                <p className="text-xs tracking-[0.08em] text-[var(--wk-accent-dark)]">
                   Thank you for subscribing. Welcome to the family.
                 </p>
               </motion.div>

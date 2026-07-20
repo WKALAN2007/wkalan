@@ -153,7 +153,7 @@ function SuiteCard({ suite, index }: { suite: (typeof suites)[0]; index: number 
       {/* Content */}
       <div className="w-full lg:w-1/2 px-4 sm:px-0">
         <motion.span
-          className="text-[10px] tracking-[0.2em] text-[var(--color-accent-dark)]"
+          className="text-[10px] tracking-[0.2em] text-[var(--wk-accent-dark)]"
           animate={{ opacity: hovered ? 1 : 0.7 }}
           transition={{ duration: 0.4 }}
         >
@@ -163,25 +163,25 @@ function SuiteCard({ suite, index }: { suite: (typeof suites)[0]; index: number 
           {suite.name}
         </h3>
         <div className="mt-4 flex flex-wrap gap-4">
-          <div className="flex items-center gap-2 text-xs text-[var(--color-text-tertiary)]">
-            <span className="block h-[1px] w-4 bg-[var(--color-accent-dark)]/30" />
+          <div className="flex items-center gap-2 text-xs text-[var(--wk-text-tertiary)]">
+            <span className="block h-[1px] w-4 bg-[var(--wk-accent-dark)]/30" />
             {suite.size}
           </div>
-          <div className="flex items-center gap-2 text-xs text-[var(--color-text-tertiary)]">
-            <span className="block h-[1px] w-4 bg-[var(--color-accent-dark)]/30" />
+          <div className="flex items-center gap-2 text-xs text-[var(--wk-text-tertiary)]">
+            <span className="block h-[1px] w-4 bg-[var(--wk-accent-dark)]/30" />
             {suite.sleeps}
           </div>
-          <div className="flex items-center gap-2 text-xs text-[var(--color-text-tertiary)]">
-            <span className="block h-[1px] w-4 bg-[var(--color-accent-dark)]/30" />
+          <div className="flex items-center gap-2 text-xs text-[var(--wk-text-tertiary)]">
+            <span className="block h-[1px] w-4 bg-[var(--wk-accent-dark)]/30" />
             {suite.view}
           </div>
         </div>
-        <p className="mt-5 text-sm leading-relaxed text-[var(--color-text-secondary)] sm:text-base">
+        <p className="mt-5 text-sm leading-relaxed text-[var(--wk-text-secondary)] sm:text-base">
           {suite.description}
         </p>
         <motion.a
           href="/hospitality#booking"
-          className="mt-6 inline-flex items-center gap-2 text-xs tracking-[0.12em] text-[var(--color-accent-dark)] no-underline"
+          className="mt-6 inline-flex items-center gap-2 text-xs tracking-[0.12em] text-[var(--wk-accent-dark)] no-underline"
           animate={{ gap: hovered ? "12px" : "8px" }}
           transition={{ duration: 0.3 }}
         >
@@ -235,7 +235,7 @@ export default function SuitesPage() {
           }}
         >
           <motion.span
-            className="text-xs tracking-[0.25em] text-[var(--color-accent-dark)]"
+            className="text-xs tracking-[0.25em] text-[var(--wk-accent-dark)]"
             variants={{
               hidden: { opacity: 0, y: 12 },
               visible: {
@@ -306,13 +306,13 @@ export default function SuitesPage() {
               },
             }}
           >
-            <span className="text-xs tracking-[0.2em] text-[var(--color-accent-dark)]">
+            <span className="text-xs tracking-[0.2em] text-[var(--wk-accent-dark)]">
               SIX SIGNATURE SUITES
             </span>
             <h2 className="mt-4 font-heading text-3xl tracking-[-0.01em] text-[#1A1A18] sm:text-4xl">
               A Suite for Every Story
             </h2>
-            <p className="mx-auto mt-4 max-w-lg text-sm leading-relaxed text-[var(--color-text-secondary)]">
+            <p className="mx-auto mt-4 max-w-lg text-sm leading-relaxed text-[var(--wk-text-secondary)]">
               From Santorini to Bodrum, each suite reflects the character of its
               location while sharing a common thread — an unwavering commitment to
               quiet, confident luxury.
@@ -343,7 +343,7 @@ export default function SuitesPage() {
             },
           }}
         >
-          <span className="text-xs tracking-[0.2em] text-[var(--color-accent-dark)]">
+          <span className="text-xs tracking-[0.2em] text-[var(--wk-accent-dark)]">
             BEGIN YOUR STAY
           </span>
           <h2 className="mt-4 font-heading text-2xl tracking-[-0.01em] text-white sm:text-3xl">
@@ -354,7 +354,7 @@ export default function SuitesPage() {
           </p>
           <a
             href="/hospitality#booking"
-            className="mt-6 inline-block border border-[var(--color-accent-dark)] px-8 py-3 text-xs tracking-[0.15em] text-[var(--color-accent-dark)] no-underline transition-colors hover:bg-[var(--color-accent-dark)] hover:text-white"
+            className="mt-6 inline-block border border-[var(--wk-accent-dark)] px-8 py-3 text-xs tracking-[0.15em] text-[var(--wk-accent-dark)] no-underline transition-colors hover:bg-[var(--wk-accent-dark)] hover:text-white"
           >
             INQUIRE NOW
           </a>

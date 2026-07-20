@@ -1,26 +1,21 @@
 # WKALAN
 
-> 帮你做个好网站。
+> Be taken seriously online.
 
-## 做什么
+## What
 
-帮 digital users 做网站。快。干净。围绕真人。不套模板。
+Custom websites built around who you are. Not a template. Not a sprint. Something that feels like you — because it started with a conversation, not a form.
 
-## 怎么工作
+## How
 
-**聊** → 一小时视频通话，了解你是谁。**设计** → 三天，从你身上长出来的设计。**开发** → 两天，Next.js + Tailwind，送到上线。
+**Talk** — An hour. I listen. Not to a feature list — to how you describe yourself, your work, what you care about.
 
-五到七天。一个围绕你的网站。
+**Design** — Grows from that conversation. Typography, spacing, color, motion — every choice traces back to something you said.
 
-## 定价
+**Build** — A site you can hand to anyone and say: this is me. Taken seriously.
 
-| 层级 | 范围 | 价格 |
-|------|------|------|
-| **Single Page** | 单页网站。定制设计 + 开发。一周交付。 | HK$8,000 |
-| **Full Site** | 多页品牌站。设计系统 + 内容架构。两周交付。 | HK$25,000 |
+## Contact
 
-## 开始
-
-预约一次对话。一小时。聊聊你。
+Start with a conversation.
 
 [hello@wkalan.com](mailto:hello@wkalan.com)

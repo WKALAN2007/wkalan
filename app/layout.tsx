@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Geist, Geist_Mono, Noto_Serif_SC } from "next/font/google";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -14,20 +14,28 @@ const geistMono = Geist_Mono({
   display: "swap",
 });
 
+const notoSerifSC = Noto_Serif_SC({
+  variable: "--font-display",
+  subsets: ["latin"],
+  weight: ["400", "700", "900"],
+  display: "swap",
+});
+
 export const metadata: Metadata = {
   title: {
-    default: "WKALAN — 做一个围绕你的网站",
+    default: "WKALAN — 线上，认真对待。",
     template: "%s — WKALAN",
   },
   description:
-    "帮人做网站。快。干净。不套模板。从一次对话开始，五到七天，一个围绕你的网站上线。",
+    "围绕你是谁而构建的定制网站。不用模板。从对话开始，不填表单。设计、开发、交付。",
   keywords: [
-    "做网站",
     "定制网站",
-    "创作者网站",
+    "网页设计",
     "个人网站",
+    "品牌设计",
     "WKALAN",
-    "网站定制",
+    "定制开发",
+    "不用模板",
   ],
   authors: [{ name: "WKALAN" }],
   creator: "WKALAN",
@@ -38,9 +46,9 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     url: "https://wkalan.vercel.app",
-    title: "WKALAN — 做一个围绕你的网站",
+    title: "WKALAN — 线上，认真对待。",
     description:
-      "帮人做网站。快。干净。不套模板。从一次对话开始，五到七天，一个围绕你的网站上线。",
+      "围绕你是谁而构建的定制网站。不用模板。从对话开始，不填表单。",
     siteName: "WKALAN",
     images: [
       {
@@ -52,9 +60,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "WKALAN — 做一个围绕你的网站",
+    title: "WKALAN — 线上，认真对待。",
     description:
-      "帮人做网站。快。干净。不套模板。从一次对话开始，五到七天，一个围绕你的网站上线。",
+      "围绕你是谁而构建的定制网站。不用模板。从对话开始，不填表单。",
     images: ["/share-image.jpg"],
   },
   robots: {
@@ -70,8 +78,8 @@ export default function RootLayout({
 }>) {
   return (
     <html
-      lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
+      lang="zh-CN"
+      className={`${geistSans.variable} ${geistMono.variable} ${notoSerifSC.variable} h-full antialiased`}
       suppressHydrationWarning
     >
       <head>
@@ -94,7 +102,7 @@ export default function RootLayout({
               url: "https://wkalan.vercel.app",
               image: "https://wkalan.vercel.app/share-image.jpg",
               description:
-                "帮人做网站。快。干净。不套模板。从一次对话开始，一个围绕你的网站上线。",
+                "围绕你是谁而构建的定制网站。不用模板。从对话开始，不填表单。设计、开发、交付。",
               email: "mailto:hello@wkalan.com",
               sameAs: ["https://www.instagram.com"],
             }),

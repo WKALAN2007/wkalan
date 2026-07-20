@@ -57,7 +57,7 @@ export function HospitalityHeader() {
           e.preventDefault();
           window.scrollTo({ top: 0, behavior: "smooth" });
         }}
-        className="font-heading text-xl tracking-[0.04em] text-[var(--color-accent-dark)] no-underline"
+        className="font-heading text-xl tracking-[0.04em] text-[var(--wk-accent-dark)] no-underline"
       >
         AURELIA
       </a>
@@ -74,7 +74,7 @@ export function HospitalityHeader() {
             }}
             className={`text-xs tracking-[0.08em] transition-colors no-underline ${
               activeSection === link.href
-                ? "text-[var(--color-accent-dark)]"
+                ? "text-[var(--wk-accent-dark)]"
                 : "text-white/60 hover:text-white"
             }`}
           >
@@ -91,7 +91,7 @@ export function HospitalityHeader() {
           const el = document.getElementById("booking");
           if (el) el.scrollIntoView({ behavior: "smooth" });
         }}
-        className="hidden border border-[var(--color-accent-dark)] px-5 py-2 text-xs tracking-[0.12em] text-[var(--color-accent-dark)] no-underline transition-colors hover:bg-[var(--color-accent-dark)] hover:text-white md:inline-block"
+        className="hidden border border-[var(--wk-accent-dark)] px-5 py-2 text-xs tracking-[0.12em] text-[var(--wk-accent-dark)] no-underline transition-colors hover:bg-[var(--wk-accent-dark)] hover:text-white md:inline-block"
       >
         RESERVE
       </a>
@@ -104,17 +104,17 @@ export function HospitalityHeader() {
       >
         <div className="flex flex-col gap-1.5">
           <motion.span
-            className="block h-[1.5px] w-5 bg-[var(--color-accent-dark)]"
+            className="block h-[1.5px] w-5 bg-[var(--wk-accent-dark)]"
             animate={mobileOpen ? { rotate: 45, y: 5 } : { rotate: 0, y: 0 }}
             transition={{ duration: 0.2 }}
           />
           <motion.span
-            className="block h-[1.5px] w-5 bg-[var(--color-accent-dark)]"
+            className="block h-[1.5px] w-5 bg-[var(--wk-accent-dark)]"
             animate={mobileOpen ? { opacity: 0 } : { opacity: 1 }}
             transition={{ duration: 0.2 }}
           />
           <motion.span
-            className="block h-[1.5px] w-5 bg-[var(--color-accent-dark)]"
+            className="block h-[1.5px] w-5 bg-[var(--wk-accent-dark)]"
             animate={mobileOpen ? { rotate: -45, y: -5 } : { rotate: 0, y: 0 }}
             transition={{ duration: 0.2 }}
           />
@@ -139,7 +139,7 @@ export function HospitalityHeader() {
               e.preventDefault();
               handleNavClick(link.href);
             }}
-            className="py-3 text-sm tracking-[0.04em] text-white/70 no-underline transition-colors hover:text-[var(--color-accent-dark)]"
+            className="py-3 text-sm tracking-[0.04em] text-white/70 no-underline transition-colors hover:text-[var(--wk-accent-dark)]"
           >
             {link.label}
           </a>

@@ -25,13 +25,13 @@ export function HospitalityDining() {
             },
           }}
         >
-          <span className="text-xs tracking-[0.2em] text-[var(--color-accent-dark)]">
+          <span className="text-xs tracking-[0.2em] text-[var(--wk-accent-dark)]">
             DINING
           </span>
           <h2 className="mt-4 font-heading text-3xl tracking-[-0.01em] text-[#1A1A18] sm:text-4xl">
             Culinary Excellence
           </h2>
-          <p className="mx-auto mt-4 max-w-lg text-sm leading-relaxed text-[var(--color-text-secondary)]">
+          <p className="mx-auto mt-4 max-w-lg text-sm leading-relaxed text-[var(--wk-text-secondary)]">
             Four distinct venues, each a destination in its own right — from
             refined tasting menus to sunset cocktails.
           </p>
@@ -142,17 +142,17 @@ function DiningCard({
           </motion.span>
         </motion.div>
         <div className="mt-5">
-          <span className="text-[10px] tracking-[0.12em] text-[var(--color-accent-dark)]">
+          <span className="text-[10px] tracking-[0.12em] text-[var(--wk-accent-dark)]">
             {restaurant.cuisine}
           </span>
           <h3 className="mt-1 font-heading text-xl text-[#1A1A18]">
             {restaurant.name}
           </h3>
-          <p className="mt-2 text-sm leading-relaxed text-[var(--color-text-secondary)]">
+          <p className="mt-2 text-sm leading-relaxed text-[var(--wk-text-secondary)]">
             {restaurant.description.slice(0, 120)}...
           </p>
           <motion.span
-            className="mt-4 inline-flex items-center gap-2 text-xs tracking-[0.12em] text-[var(--color-accent-dark)]"
+            className="mt-4 inline-flex items-center gap-2 text-xs tracking-[0.12em] text-[var(--wk-accent-dark)]"
             animate={{ gap: hovered ? "12px" : "8px" }}
             transition={{ duration: 0.3 }}
           >

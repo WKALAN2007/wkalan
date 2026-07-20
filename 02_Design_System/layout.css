@@ -82,14 +82,14 @@
 .divider {
   width: 100%;
   height: 1px;
-  background: var(--color-border);
+  background: var(--wk-border);
   border: none;
 }
 
 .divider-accent {
   width: 48px;
   height: 1px;
-  background: var(--color-accent);
+  background: var(--wk-accent);
   opacity: 0.3;
   border: none;
 }
@@ -101,13 +101,13 @@
   letter-spacing: var(--tracking-label);
   font-weight: var(--weight-medium);
   text-transform: uppercase;
-  color: var(--color-text-tertiary);
+  color: var(--wk-text-tertiary);
   margin-bottom: var(--space-3);
 }
 
 .section-label-accent {
   composes: section-label;
-  color: var(--color-accent);
+  color: var(--wk-accent);
 }
 
 /* ── Aspect Ratios ── */
@@ -142,7 +142,7 @@
 
 /* ── Focus Ring ── */
 .focus-ring:focus-visible {
-  outline: 2px solid var(--color-accent);
+  outline: 2px solid var(--wk-accent);
   outline-offset: 2px;
   border-radius: var(--radius-sm);
 }

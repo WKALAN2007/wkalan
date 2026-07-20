@@ -135,7 +135,7 @@
   transition: color var(--duration-fast) var(--ease-primary);
 }
 .hover-gold:hover {
-  color: var(--color-accent-dark);
+  color: var(--wk-accent-dark);
 }
 
 /* ── Page Transitions ── */
