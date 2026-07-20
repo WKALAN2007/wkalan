@@ -1,0 +1,15 @@
+@import "tailwindcss";
+
+/* ── Base ── */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-geist-sans, system-ui, sans-serif);
+}
+
+/* ── Selection ── */
+::selection {
+  background: rgba(0, 0, 0, 0.1);
+}

@@ -1,9 +1,13 @@
 export const siteConfig = {
   name: "WKALAN",
 
-  tagline: "超越内容。超越创作者。",
+  tagline: "做一个围绕你的网站",
 
-  mission: "呈现屏幕背后的人。",
+  mission: "帮人做网站。快。干净。不套模板。",
 
-  philosophy: "好的设计从不随机。",
+  philosophy: "从一次对话开始。",
+
+  email: "hello@wkalan.com",
+
+  year: new Date().getFullYear(),
 };
