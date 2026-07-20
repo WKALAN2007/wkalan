@@ -2,59 +2,59 @@
 
 ## Philosophy
 
-**We don't sell websites. We design digital identities.**
+**我们不卖网站。我们设计数字身份。**
 
-This distinction matters for pricing. A website is a commodity — you can buy one for $500 or $50,000. A digital identity is an investment in how you are known online for the next 3–5 years.
+一个网站是 commodity——你可以花500块买一个，也可以花5万块买一个。一个数字身份是一项投资——它在未来3-5年里，决定了一个人在互联网上如何被了解。
 
 ## Pricing Model
 
-### Project-Based (Current Stage)
+### 项目制（当前阶段）
 
-As a new studio, we work on a per-project basis. Each project is scoped individually because every person is different.
+每个项目都是独一无二的——因为每个人都是独一无二的。我们的价格基于深度，不是基于页面数。
 
-| Tier | Scope | Investment |
-|------|-------|------------|
-| **Identity Lite** | Single-page digital identity. 5 sections. Discovery + design + development. | $2,000–$5,000 |
-| **Identity Full** | Multi-page digital identity. Full discovery process. Custom design system. CMS integration. | $5,000–$12,000 |
-| **Identity System** | Full digital identity + brand system. Includes brand strategy, visual language, content strategy, motion design. | $12,000–$25,000 |
+| 层级 | 范围 | 投资 |
+|------|------|------|
+| **Identity Lite** | 单页数字身份。深度对话 + 设计 + 开发。 | HK$16,000–39,000 |
+| **Identity Full** | 多页数字身份。完整品味过程。定制设计系统。内容架构。 | HK$39,000–95,000 |
+| **Identity System** | 完整数字身份 + 品牌系统。品牌策略、视觉语言、内容策略、动态设计。 | HK$95,000–200,000 |
 
-### What's Always Included
-- **Discovery:** Hours of conversation before any pixel is placed
-- **Strategy:** Brand voice, visual direction, content architecture
-- **Design:** Custom, no templates, no shortcuts
-- **Development:** Next.js, Tailwind, framer-motion, production-ready
-- **Launch:** Deployment, SEO, performance optimization
-- **Care:** Post-launch support窗口
+### 每个项目都包含
+- **品味**：几十个小时的对话——在任何像素出现之前
+- **策略**：品牌声音、视觉方向、内容架构
+- **设计**：完全定制，无模板，无捷径
+- **开发**：Next.js, Tailwind, Framer Motion，生产就绪
+- **发布**：部署、SEO、性能优化
+- **陪伴**：发布后支持窗口
 
-### What's Never Included
-- Templates
-- Rush fees (we don't rush)
-- Hidden costs
-- Monthly retainers (we build for longevity, not dependency)
+### 我们不做的事
+- 模板
+- 赶工（我们不赶）
+- 隐性收费
+- 按月维护（我们为长期而建，不为依赖而建）
 
-## Future Pricing Models
+## 未来的定价模式
 
-### Productized Service (Stage 2)
-Once processes are refined and documented (PLAYBOOK), offer fixed-scope packages:
-- **The Creator Identity** — Fixed price, fixed timeline, defined scope
-- **The Founder Identity** — Same model, different focus
+### 产品化服务（第二阶段）
+当流程被提炼和文档化（PLAYBOOK）后，提供固定范围的产品：
+- **创作者身份** — 固定价格，固定时间，明确定义范围
+- **创始人身份** — 同样模式，不同焦点
 
-### Digital Products (Stage 3)
-- **WKALAN Design System** — Licensed design tokens, components, templates
-- **AI Prompts Library** — Curated prompts for brand strategy, design, code
-- **PLAYBOOK** — SOP documentation for other designers
+### 数字产品（第三阶段）
+- **WKALAN 品味框架** — 授权使用我们的发现方法论
+- **AI 提示词库** — 为品牌策略、设计、代码精选的提示词
+- **PLAYBOOK** — 为其他设计师提供的 SOP 文档
 
-## The Value Equation
+## 价值等式
 
-We don't compete on price. We compete on:
+我们不拼价格。我们拼的是：
 
-**Depth.** No one else spends this much time listening before designing.
+**深度。** 没有人在设计前花这么多时间倾听。
 
-**Longevity.** Our work is built to last 3–5 years, not 3–5 months.
+**长期。** 我们的作品为3-5年而建，不是为3-5个月。
 
-**Truth.** AI-generated templates are cheap. Authentic digital identity is rare — and priceless to the right person.
+**真实。** AI生成的模板很便宜。真实的数字身份很稀有——对合适的人来说，无价。
 
 ---
 
-*Cheap work asks: "How quickly can we build this?"*
-*Valuable work asks: "How deeply can we understand this?"*
+*便宜的工作问："多快能做完？"*
+*有价值的工作问："多深能理解？"*

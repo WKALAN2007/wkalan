@@ -4,31 +4,35 @@ import { motion } from "framer-motion";
 
 const tiers = [
   {
-    name: "Sample",
-    price: "HK$500",
-    timeline: "5 days",
-    desc: "你的第一个数字身份。",
-    href: "mailto:hello@wkalan.com",
+    name: "Identity Lite",
+    price: "HK$16,000",
+    timeline: "Single-page identity",
+    desc: "单页数字身份。深度对话 + 定制设计 + 开发。适合想要一个专属数字空间的创作者。",
+    href: "mailto:hello@wkalan.com?subject=Identity%20Lite",
   },
   {
-    name: "Advance",
-    price: "HK$1,000",
-    timeline: "10 days",
-    desc: "深度与故事。不只是存在——是被了解。",
-    href: "mailto:hello@wkalan.com",
+    name: "Identity Full",
+    price: "HK$39,000",
+    timeline: "Multi-page identity",
+    desc: "多页数字身份。完整品味过程。定制设计系统。内容架构。适合需要完整数字存在的创作者与创始人。",
+    href: "mailto:hello@wkalan.com?subject=Identity%20Full",
   },
   {
-    name: "Pro",
-    price: "HK$2,000",
-    timeline: "14 days",
-    desc: "你的数字遗产。一个能超越你的空间。",
-    href: "mailto:hello@wkalan.com",
+    name: "Identity System",
+    price: "HK$95,000",
+    timeline: "Full identity + brand",
+    desc: "完整数字身份 + 品牌系统。品牌策略、视觉语言、内容策略、动态设计。适合将数字身份作为核心的创作者。",
+    href: "mailto:hello@wkalan.com?subject=Identity%20System",
   },
 ];
 
+/**
+ * Pricing section — 3 tiers aligned with brand positioning.
+ * Digital Identity, not "websites." Investment, not commodity.
+ */
 export function TheInvitation() {
   return (
-    <section className="bg-[#0F0F0D] py-[var(--space-section-lg)]">
+    <section className="bg-[#0F0F0D] py-[var(--space-section-lg)]" id="pricing">
       <div className="mx-auto max-w-[var(--container-max)] px-[var(--container-padding)]">
         <motion.div
           className="flex flex-col items-center gap-16"
@@ -45,7 +49,7 @@ export function TheInvitation() {
                 visible: { opacity: 1, y: 0, transition: { duration: 0.7, ease: [0.16, 1, 0.3, 1] } },
               }}
             >
-              The Invitation
+              Pricing
             </motion.span>
             <motion.div
               className="h-[1px] w-12 bg-[#C9A84C]/40"
@@ -62,9 +66,7 @@ export function TheInvitation() {
                 visible: { opacity: 1, y: 0, transition: { duration: 0.8, delay: 0.3, ease: [0.16, 1, 0.3, 1] } },
               }}
             >
-              你值得一个
-              <br />
-              地方安放。
+              选择你的数字身份
             </motion.h2>
             <motion.p
               className="mt-2 max-w-md text-sm leading-relaxed text-white/40"
@@ -73,7 +75,7 @@ export function TheInvitation() {
                 visible: { opacity: 1, y: 0, transition: { duration: 0.8, delay: 0.4, ease: [0.16, 1, 0.3, 1] } },
               }}
             >
-              不是模板。不是一个 link-in-bio。是一个围绕真实的你而设计的数字身份。
+              每个项目都从一次深度对话开始。不是问卷，不是brief——是聊天。先品味你的人生，再给你一个价格。
             </motion.p>
           </div>
 
@@ -100,30 +102,11 @@ export function TheInvitation() {
                 <span className="text-xs tracking-[0.15em] text-white/30">{tier.timeline}</span>
                 <p className="text-sm leading-relaxed text-white/50">{tier.desc}</p>
                 <span className="mt-2 inline-flex items-center gap-1 text-xs font-medium uppercase tracking-[0.15em] text-[#C9A84C] transition-all group-hover:gap-2">
-                  了解 <span>&rarr;</span>
+                  开始对话 <span>&rarr;</span>
                 </span>
               </motion.a>
             ))}
           </div>
-
-          {/* Bottom CTA */}
-          <motion.div
-            className="flex flex-col items-center gap-4 text-center"
-            variants={{
-              hidden: { opacity: 0 },
-              visible: { opacity: 1, transition: { duration: 0.8, delay: 0.9 } },
-            }}
-          >
-            <p className="text-sm text-white/30">
-              不确定哪个适合你？预约一次免费的 30 分钟对话。
-            </p>
-            <a
-              href="mailto:hello@wkalan.com"
-              className="inline-flex items-center gap-2 border border-[#C9A84C]/40 px-8 py-3 text-xs font-medium uppercase tracking-[0.15em] text-[#C9A84C] transition-all hover:border-[#C9A84C] hover:bg-[#C9A84C]/10"
-            >
-              开始对话 &rarr;
-            </a>
-          </motion.div>
         </motion.div>
       </div>
     </section>

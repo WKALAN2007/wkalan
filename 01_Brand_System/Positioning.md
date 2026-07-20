@@ -36,7 +36,7 @@ AI can generate a hundred web pages. It cannot know what happened to you at 17. 
 
 ## Positioning Statement
 
-**For creators who have built audiences but never been truly known, WKALAN is the digital identity studio that designs spaces where the real person behind the content can be seen — unlike personal branding consultants who polish your image or web agencies who build templated portfolios.**
+**For creators who have built audiences but never been truly known, WKALAN is the digital identity studio that savors your life and carves a digital identity — a space where a stranger can walk in and leave feeling they know a person. Unlike personal branding consultants who polish your image, or web agencies who build templated portfolios, we start with listening, not designing.**
 
 ## Target Perception
 

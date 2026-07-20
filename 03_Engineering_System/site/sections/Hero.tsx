@@ -1,118 +1,58 @@
 "use client";
 
-import { useRef } from "react";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion } from "framer-motion";
 import { Container } from "@/02_Design_System/components/Container";
-import { Button } from "@/02_Design_System/components/Button";
 
-const fadeUp = {
-  hidden: { opacity: 0, y: 40 },
-  visible: (i: number) => ({
-    opacity: 1,
-    y: 0,
-    transition: {
-      duration: 0.9,
-      delay: 1.6 + 0.12 * i,
-      ease: [0.16, 1, 0.3, 1] as const,
-    },
-  }),
-};
-
+/**
+ * Clean hero — one sentence. No scroll tricks. Just message + action.
+ */
 export function Hero() {
-  const ref = useRef<HTMLElement>(null);
-  const { scrollYProgress } = useScroll({
-    target: ref,
-    offset: ["start start", "end start"],
-  });
-
-  const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
-  const scale = useTransform(scrollYProgress, [0, 0.5], [1, 0.97]);
-  const y = useTransform(scrollYProgress, [0, 0.5], [0, -60]);
-
   return (
-    <section
-      ref={ref}
-      className="relative flex min-h-screen items-center overflow-hidden"
-    >
+    <section className="relative flex min-h-[90svh] items-center" id="top">
       <div className="pointer-events-none absolute -top-40 right-0 h-[600px] w-[600px] rounded-full bg-accent/5 blur-[120px]" />
 
-      <motion.div style={{ opacity, scale, y }} className="w-full">
-        <Container className="flex flex-col items-start gap-10 py-[var(--space-5xl)]">
-          <motion.div
-            className="flex flex-col gap-6 max-w-4xl"
-            initial="hidden"
-            animate="visible"
+      <Container className="flex flex-col items-center gap-8 py-[var(--space-5xl)] text-center">
+        <motion.div
+          className="flex flex-col items-center gap-6 max-w-2xl"
+          initial={{ opacity: 0, y: 24 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+        >
+          <span className="text-sm font-medium tracking-[var(--tracking-wide)] text-text-secondary">
+            数字身份工作室
+          </span>
+
+          <h1 className="font-heading text-[var(--text-hero)] leading-[var(--leading-tight)] tracking-[var(--tracking-tight)] text-primary">
+            品味人生，
+            <br />
+            雕刻身份。
+          </h1>
+
+          <p className="max-w-md text-lg leading-[var(--leading-relaxed)] text-text-secondary">
+            不是做网站。不是做品牌。是建造一个数字空间——让陌生人走进去，离开时感觉自己认识了一个人。
+          </p>
+        </motion.div>
+
+        <motion.div
+          className="flex items-center gap-4"
+          initial={{ opacity: 0, y: 16 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
+        >
+          <a
+            href="#work"
+            className="inline-flex items-center gap-2 rounded-[var(--radius-md)] border border-border px-6 py-3 text-sm font-medium text-primary transition-all hover:border-primary hover:bg-surface"
           >
-            <motion.div
-              variants={fadeUp}
-              custom={0}
-              className="flex items-center gap-4"
-            >
-              <span className="h-[1px] w-8 bg-border" />
-              <span className="text-sm font-medium tracking-[var(--tracking-wide)] text-text-secondary">
-                数字身份工作室
-              </span>
-            </motion.div>
-
-            <motion.h1
-              variants={fadeUp}
-              custom={1}
-              className="font-heading text-[var(--text-hero)] leading-[var(--leading-tight)] tracking-[var(--tracking-tight)] text-primary"
-            >
-              超越内容。
-              <br />
-              超越创作者。
-            </motion.h1>
-
-            <motion.p
-              variants={fadeUp}
-              custom={2}
-              className="max-w-xl text-lg md:text-[var(--text-subheading)] leading-[var(--leading-relaxed)] text-text-secondary"
-            >
-              我们设计数字体验，去呈现
-              <br className="hidden sm:block" />
-              每个创作者背后真实的人。
-            </motion.p>
-          </motion.div>
-
-          <motion.div
-            variants={fadeUp}
-            custom={3}
-            initial="hidden"
-            animate="visible"
+            看作品 ↓
+          </a>
+          <a
+            href="mailto:hello@wkalan.com"
+            className="inline-flex items-center gap-2 rounded-[var(--radius-md)] border border-accent/40 px-6 py-3 text-sm font-medium text-accent transition-all hover:border-accent hover:bg-accent/10"
           >
-            <Button href="#cta" size="lg">
-              开始你的旅程
-            </Button>
-          </motion.div>
-
-          <motion.div
-            className="mt-8 flex items-center gap-3"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 2.4, duration: 0.8 }}
-          >
-            <motion.div
-              className="h-8 w-[1px] bg-border overflow-hidden"
-              initial={{ opacity: 0.3 }}
-              animate={{ opacity: 1 }}
-            >
-              <motion.div
-                className="h-full w-full bg-primary/40"
-                animate={{ y: ["-100%", "100%"] }}
-                transition={{
-                  duration: 2,
-                  repeat: Infinity,
-                  ease: "easeInOut",
-                }}
-              />
-            </motion.div>
-            <span className="text-xs tracking-[var(--tracking-wide)] text-text-tertiary">
-              向下滚动
-            </span>
-          </motion.div>
-        </Container>
-      </motion.div>
+            预约对话 →
+          </a>
+        </motion.div>
+      </Container>
 
       <div className="pointer-events-none absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-background to-transparent" />
     </section>

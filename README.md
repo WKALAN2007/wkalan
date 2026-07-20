@@ -1,36 +1,42 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# WKALAN
 
-## Getting Started
+> 品味人生，雕刻身份。每个人都是一本书——我们的工作，是把这本书翻开。
 
-First, run the development server:
+## 什么是 WKALAN
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+WKALAN 是一个 **数字身份工作室（Digital Identity Studio）**。
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+不是做网站。不是做品牌。不是做个人 IP。
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+我们在做的事只有一件：**品味一个人的人生，然后雕刻出一个数字身份。** 一个空间，让陌生人走进去，离开时感觉自己认识了一个人。
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 我们如何工作
 
-## Learn More
+### 品味
+在画任何图之前，我们先聊。几十个小时。关于你的17岁。关于你最害怕的事。关于那个改变了你一生的电话。关于你每天早上的那杯咖啡。
 
-To learn more about Next.js, take a look at the following resources:
+不急。不赶。让味道慢慢出来。
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### 雕刻
+从品味到的故事里，我们找到只属于你的那几个关键词。它们不是编的——是从你的人生里长出来的。
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+然后我们雕刻。去掉不需要的。放大最重要的。让每一个像素、每一个字、每一个动画——都有来处。
 
-## Deploy on Vercel
+### 呈现
+最终的呈现不是一个网站。是一个 **数字身份**。一个让你可以被真正了解的地方。
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 你适合 WKALAN 吗
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+**适合**：你已经建立了观众，但还没有被人真正了解。你有故事，但没有空间去讲。你愿意为一件能陪你 3-5 年的东西投资。
+
+**不适合**：你只需要一个 link-in-bio。你需要两周内上线。你想用模板。
+
+## 开始
+
+每个项目都从一次对话开始。不是问卷。不是 brief。是聊天。
+
+[hello@wkalan.com](mailto:hello@wkalan.com)
+
+---
+
+*品味人生，雕刻身份。*

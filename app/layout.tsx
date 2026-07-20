@@ -1,15 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
-import { Instrument_Serif } from "next/font/google";
 import "./globals.css";
-import { IntroTransition } from "@/02_Design_System/components/IntroTransition";
-
-const instrumentSerif = Instrument_Serif({
-  weight: ["400"],
-  subsets: ["latin"],
-  variable: "--font-instrument-serif",
-  display: "swap",
-});
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -29,34 +20,45 @@ export const metadata: Metadata = {
     template: "%s — WKALAN",
   },
   description:
-    "WKALAN is a digital identity studio. We don't build websites. We design spaces where real people can be found. 品味人生，雕刻身份。",
+    "WKALAN 是一个数字身份工作室。我们品味一个人的人生，然后雕刻出一个数字身份——一个让陌生人走进去，离开时感觉自己认识了一个人的空间。",
   keywords: [
-    "digital identity",
-    "creator website",
-    "personal brand",
-    "web design",
-    "WKALAN",
     "数字身份",
+    "Digital Identity",
     "创作者网站",
+    "个人品牌",
+    "B站创作者",
+    "YouTuber网站",
+    "WKALAN",
+    "网站定制",
     "品味人生",
-    "雕刻身份",
   ],
   authors: [{ name: "WKALAN" }],
   creator: "WKALAN",
-  metadataBase: new URL("https://wkalan.com"),
+  metadataBase: new URL("https://wkalan.vercel.app"),
+  alternates: {
+    canonical: "https://wkalan.vercel.app",
+  },
   openGraph: {
+    type: "website",
+    url: "https://wkalan.vercel.app",
     title: "WKALAN — 品味人生，雕刻身份",
     description:
-      "We don't build websites. We design spaces where real people can be found.",
+      "WKALAN 是一个数字身份工作室。我们品味一个人的人生，然后雕刻出一个数字身份——一个让陌生人走进去，离开时感觉自己认识了一个人的空间。",
     siteName: "WKALAN",
-    type: "website",
-    locale: "zh_CN",
+    images: [
+      {
+        url: "/share-image.jpg",
+        width: 1200,
+        height: 630,
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "WKALAN — 品味人生，雕刻身份",
     description:
-      "We don't build websites. We design spaces where real people can be found.",
+      "WKALAN 是一个数字身份工作室。我们品味一个人的人生，然后雕刻出一个数字身份——一个让陌生人走进去，离开时感觉自己认识了一个人的空间。",
+    images: ["/share-image.jpg"],
   },
   robots: {
     index: true,
@@ -71,12 +73,38 @@ export default function RootLayout({
 }>) {
   return (
     <html
-      lang="zh-CN"
-      className={`${geistSans.variable} ${geistMono.variable} ${instrumentSerif.variable} h-full antialiased`}
+      lang="en"
+      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
       suppressHydrationWarning
     >
+      <head>
+        {/* Prevent browser scroll restoration on reload — critical for
+            Lenis + ScrollTrigger sync. Mirrors meinhardtaxer.com. */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `if('scrollRestoration' in history) history.scrollRestoration = 'manual'; window.scrollTo(0, 0);`,
+          }}
+        />
+
+        {/* JSON-LD structured data — mirrors meinhardtaxer.com schema */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Organization",
+              name: "WKALAN",
+              url: "https://wkalan.vercel.app",
+              image: "https://wkalan.vercel.app/share-image.jpg",
+              description:
+                "WKALAN 是一个数字身份工作室。品味人生，雕刻身份——让每一个人在互联网上被真正了解。",
+              email: "mailto:hello@wkalan.com",
+              sameAs: ["https://www.instagram.com"],
+            }),
+          }}
+        />
+      </head>
       <body className="min-h-full flex flex-col bg-background text-primary">
-        <IntroTransition />
         {children}
       </body>
     </html>

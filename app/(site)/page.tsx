@@ -1,21 +1,27 @@
-import { Chapter1Stop } from "@/03_Engineering_System/site/sections/Chapter1Stop";
-import { Chapter2Problem } from "@/03_Engineering_System/site/sections/Chapter2Problem";
-import { Chapter3Philosophy } from "@/03_Engineering_System/site/sections/Chapter3Philosophy";
-import { Chapter4Process } from "@/03_Engineering_System/site/sections/Chapter4Process";
-import { Chapter5Stories } from "@/03_Engineering_System/site/sections/Chapter5Stories";
-import { Chapter6Founder } from "@/03_Engineering_System/site/sections/Chapter6Founder";
-import { Chapter7Invitation } from "@/03_Engineering_System/site/sections/Chapter7Invitation";
+import { ManifestoHero } from "@/03_Engineering_System/site/sections/ManifestoHero";
+import { TheOrigin } from "@/03_Engineering_System/site/sections/TheOrigin";
+import { TheProcess } from "@/03_Engineering_System/site/sections/TheProcess";
+import { SelectedStories } from "@/03_Engineering_System/site/sections/SelectedStories";
+import { TheInvitation } from "@/03_Engineering_System/site/sections/TheInvitation";
 
+/**
+ * WKALAN Homepage — Digital Identity Studio
+ *
+ * Section flow:
+ * ManifestoHero  — "品味人生，雕刻身份" (brand statement)
+ * TheOrigin      — The Camino story (why this exists)
+ * TheProcess     — Savor → Understand → Carve → Reveal
+ * SelectedStories — People we've worked with, framed as lives savored
+ * TheInvitation   — Pricing tiers + CTA
+ */
 export default function Home() {
   return (
     <main>
-      <Chapter1Stop />
-      <Chapter2Problem />
-      <Chapter3Philosophy />
-      <Chapter4Process />
-      <Chapter5Stories />
-      <Chapter6Founder />
-      <Chapter7Invitation />
+      <ManifestoHero />
+      <TheOrigin />
+      <TheProcess />
+      <SelectedStories />
+      <TheInvitation />
     </main>
   );
 }
