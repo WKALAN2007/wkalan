@@ -6,16 +6,16 @@ const stories = [
   {
     name: "小白剪了個球",
     who: "Bilibili 创作者 · 30万+ 粉丝",
-    description: "一个做了五年篮球视频的人。粉丝看他的内容——但没人知道他的故事。我们品味了他的17岁、他的第一颗球、他膝盖上的那道疤。然后把他的故事变成了一个空间。",
+    description: "做了五年篮球视频。需要一个观众能真正了解他的地方。我们做了一个围绕他的网站——快，干净，从一次对话开始。",
     href: "/basketball",
-    label: "创作者数字身份",
+    label: "创作者网站",
   },
   {
     name: "NKSEN",
-    who: "时装设计师 · SS26 Collection",
-    description: "一个用衣服说话的人。安静、克制、对细节偏执。我们花了三周听她讲布料的来历，然后雕刻出一个和她作品一样安静的数字空间。",
+    who: "时装设计师 · SS26",
+    description: "安静、克制的设计师。需要一个和她作品一样干净的地方。一周，一个围绕她的网站。",
     href: "/fashion",
-    label: "设计师数字身份",
+    label: "设计师网站",
   },
 ];
 
@@ -23,7 +23,6 @@ export function SelectedStories() {
   return (
     <section id="stories" className="bg-[var(--wk-bg)] py-[var(--space-section)]">
       <div className="mx-auto max-w-[var(--container-max)] px-[var(--container-padding)]">
-        {/* Header */}
         <motion.div
           className="mb-16 flex flex-col items-center gap-4 text-center"
           initial="hidden"
@@ -37,7 +36,7 @@ export function SelectedStories() {
               visible: { opacity: 1, y: 0, transition: { duration: 0.7, ease: [0.16, 1, 0.3, 1] } },
             }}
           >
-            精选故事
+            做过的事
           </motion.span>
           <motion.h2
             className="font-heading text-[var(--text-h2)] leading-[var(--leading-tight)] tracking-[-0.02em] text-[var(--wk-text-primary)]"
@@ -46,11 +45,10 @@ export function SelectedStories() {
               visible: { opacity: 1, y: 0, transition: { duration: 0.8, delay: 0.1, ease: [0.16, 1, 0.3, 1] } },
             }}
           >
-            我们品味过的人生。
+            围绕他们而建的网站。
           </motion.h2>
         </motion.div>
 
-        {/* Story Cards */}
         <div className="grid gap-8 sm:grid-cols-2">
           {stories.map((story, i) => (
             <motion.a
@@ -79,13 +77,12 @@ export function SelectedStories() {
                 {story.description}
               </p>
               <span className="mt-6 inline-flex items-center gap-1 text-xs font-medium uppercase tracking-[0.15em] text-[var(--wk-accent)] transition-all group-hover:gap-2">
-                浏览网站 <span>&rarr;</span>
+                看网站 <span>&rarr;</span>
               </span>
             </motion.a>
           ))}
         </div>
 
-        {/* Bottom */}
         <motion.p
           className="mt-16 text-center text-sm text-[var(--wk-text-tertiary)]"
           initial={{ opacity: 0 }}
@@ -93,7 +90,7 @@ export function SelectedStories() {
           transition={{ duration: 0.8, delay: 0.4 }}
           viewport={{ once: true }}
         >
-          更多故事即将到来。每一个，都是一个真实的人。
+          每个人都不一样。每个网站也不一样。
         </motion.p>
       </div>
     </section>

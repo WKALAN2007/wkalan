@@ -1,49 +1,25 @@
 # Positioning
 
-## Market Position
+## What We Are
 
-WKALAN occupies a space that doesn't yet have a name. We are defining a new category: **Digital Identity Design.**
+**帮人做网站。** 定位清晰：digital users 需要一个好网站。
 
-## The Current Landscape
+## Who It's For
 
-| Category | What They Do | Why It Falls Short |
-|----------|-------------|-------------------|
-| **Web Design Agencies** | Build websites | Templates, trends, no depth |
-| **Personal Branding Consultants** | Polish your image | Performance-driven, surface-level |
-| **Link-in-Bio Tools** | Aggregate links | Utilitarian, impersonal, temporary |
-| **Portfolio Platforms** | Showcase work | Content-first, not person-first |
-| **WKALAN** | **Reveal the person** | *The gap we fill* |
+已经有线上生活的人——创作者、自由职业者、小品牌、设计师。他们需要一个属于自己的网上空间。
 
-## Our Differentiation
+## Why Us
 
-### Not Personal Branding
-Personal branding is about projecting an image. Digital identity is about revealing a truth. The difference is everything.
+- **围绕你**：设计从你身上长出来，不是从模板库里选的
+- **快**：五到七天，聊到上线
+- **干净**：没有多余的东西——不堆功能，不炫技
+- **不套模板**：每一个网站都是为那个人建的
 
-### Not A Web Agency
-Agencies build websites. We build digital homes. A website is visited. A digital identity is inhabited.
+## The Competition
 
-### Not AI-Generated
-AI can generate a hundred web pages. It cannot know what happened to you at 17. Authenticity is anti-algorithmic.
-
-## The WKALAN Category
-
-**Digital Identity Design** is:
-- The intersection of brand strategy, editorial design, and personal storytelling
-- A process that starts with listening, not designing
-- An output that feels like a person, not a product
-- Built for longevity, not launch day
-- Measured by depth of understanding, not traffic metrics
-
-## Positioning Statement
-
-**For creators who have built audiences but never been truly known, WKALAN is the digital identity studio that savors your life and carves a digital identity — a space where a stranger can walk in and leave feeling they know a person. Unlike personal branding consultants who polish your image, or web agencies who build templated portfolios, we start with listening, not designing.**
-
-## Target Perception
-
-When someone encounters WKALAN, we want them to think:
-
-*"This is different. This isn't about being impressive. This is about being known."*
-
----
-
-*We don't compete. We define.*
+| 选项 | 问题 |
+|------|------|
+| 自己用模板 | 不是你的。看起来像一千个其他网站。 |
+| 找agency | 贵。慢。为功能付费，不是为了"你"。 |
+| link-in-bio | 链接列表不是网站。不是一个地方。 |
+| **WKALAN** | 围绕你。快。干净。一个真正属于你的网站。 |

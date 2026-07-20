@@ -3,15 +3,15 @@
 import { motion } from "framer-motion";
 
 const steps = [
-  { num: "01", word: "倾听", en: "Listen", desc: "几小时的对话。不是问卷。是聊天。不急。不赶。品味你的人生。" },
-  { num: "02", word: "理解", en: "Understand", desc: "从几千字的对话里，找到三个真正属于你的关键词。不是我们编的——是从你的故事里长出来的。" },
-  { num: "03", word: "雕刻", en: "Carve", desc: "开始设计。去掉不属于你的。留下本质。每一个颜色、每一个字距、每一个动画——都有来处。" },
-  { num: "04", word: "呈现", en: "Reveal", desc: "上线。不是交付。是诞生。一个陌生人走进去，离开时觉得自己认识了一个人。" },
+  { num: "01", word: "聊", en: "Chat", desc: "一小时视频通话。了解你。你做什么、你在乎什么、你想要什么样的网上空间。" },
+  { num: "02", word: "设计", en: "Design", desc: "三天。从你身上长出来的设计。不是从模板库里选的——是围绕你做的。" },
+  { num: "03", word: "开发", en: "Build", desc: "两天。Next.js + Tailwind。响应式。快。干净。没有多余的东西。" },
+  { num: "04", word: "上线", en: "Launch", desc: "你的网站上线了。一个围绕你的地方。不是B站主页。不是微博。是你的。" },
 ];
 
 export function TheProcess() {
   return (
-    <section id="process" className="bg-[var(--color-surface)] py-[var(--space-section)]">
+    <section id="process" className="bg-[var(--wk-surface)] py-[var(--space-section)]">
       <div className="mx-auto max-w-[var(--container-max)] px-[var(--container-padding)]">
         <motion.div
           className="mb-16 flex flex-col items-center gap-4 text-center"
@@ -20,29 +20,21 @@ export function TheProcess() {
           viewport={{ once: true, margin: "-80px" }}
         >
           <motion.span
-            className="text-xs font-medium uppercase tracking-[0.2em] text-[var(--color-text-tertiary)]"
+            className="text-xs font-medium uppercase tracking-[0.2em] text-[var(--wk-text-tertiary)]"
             variants={{
               hidden: { opacity: 0, y: 16 },
               visible: { opacity: 1, y: 0, transition: { duration: 0.7, ease: [0.16, 1, 0.3, 1] } },
             }}
           >
-            The Process
+            怎么做
           </motion.span>
-          <motion.div
-            className="h-[1px] w-12 bg-[var(--color-accent)]/30"
-            variants={{
-              hidden: { scaleX: 0 },
-              visible: { scaleX: 1, transition: { duration: 0.8, delay: 0.2, ease: [0.16, 1, 0.3, 1] } },
-            }}
-            style={{ transformOrigin: "center" }}
-          />
         </motion.div>
 
         <div className="mx-auto max-w-2xl">
           {steps.map((step, i) => (
             <motion.div
               key={step.num}
-              className="group flex gap-6 border-b border-[var(--color-border)] py-8 last:border-b-0 sm:gap-10"
+              className="group flex gap-6 border-b border-[var(--wk-border)] py-8 last:border-b-0 sm:gap-10"
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true, margin: "-50px" }}
@@ -55,36 +47,25 @@ export function TheProcess() {
                 },
               }}
             >
-              <span className="font-mono text-sm text-[var(--color-text-tertiary)] transition-colors group-hover:text-[var(--color-accent)]">
+              <span className="font-mono text-sm text-[var(--wk-text-tertiary)] transition-colors group-hover:text-[var(--wk-accent)]">
                 {step.num}
               </span>
               <div className="flex flex-col gap-1.5">
                 <div className="flex items-center gap-2">
-                  <h3 className="text-lg font-medium text-[var(--color-text-primary)]">
+                  <h3 className="text-lg font-medium text-[var(--wk-text-primary)]">
                     {step.word}
                   </h3>
-                  <span className="text-xs tracking-[0.15em] text-[var(--color-text-tertiary)]">
+                  <span className="text-xs tracking-[0.15em] text-[var(--wk-text-tertiary)]">
                     {step.en}
                   </span>
                 </div>
-                <p className="text-sm leading-relaxed text-[var(--color-text-secondary)]">
+                <p className="text-sm leading-relaxed text-[var(--wk-text-secondary)]">
                   {step.desc}
                 </p>
               </div>
             </motion.div>
           ))}
         </div>
-
-        {/* Bridge */}
-        <motion.p
-          className="mt-16 text-center text-sm text-[var(--color-text-tertiary)]"
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ duration: 0.8, delay: 0.5 }}
-          viewport={{ once: true }}
-        >
-          看我们为别人做了什么 &darr;
-        </motion.p>
       </div>
     </section>
   );

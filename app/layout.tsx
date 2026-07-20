@@ -16,21 +16,18 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: {
-    default: "WKALAN — 品味人生，雕刻身份",
+    default: "WKALAN — 做一个围绕你的网站",
     template: "%s — WKALAN",
   },
   description:
-    "WKALAN 是一个数字身份工作室。我们品味一个人的人生，然后雕刻出一个数字身份——一个让陌生人走进去，离开时感觉自己认识了一个人的空间。",
+    "帮人做网站。快。干净。不套模板。从一次对话开始，五到七天，一个围绕你的网站上线。",
   keywords: [
-    "数字身份",
-    "Digital Identity",
+    "做网站",
+    "定制网站",
     "创作者网站",
-    "个人品牌",
-    "B站创作者",
-    "YouTuber网站",
+    "个人网站",
     "WKALAN",
     "网站定制",
-    "品味人生",
   ],
   authors: [{ name: "WKALAN" }],
   creator: "WKALAN",
@@ -41,9 +38,9 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     url: "https://wkalan.vercel.app",
-    title: "WKALAN — 品味人生，雕刻身份",
+    title: "WKALAN — 做一个围绕你的网站",
     description:
-      "WKALAN 是一个数字身份工作室。我们品味一个人的人生，然后雕刻出一个数字身份——一个让陌生人走进去，离开时感觉自己认识了一个人的空间。",
+      "帮人做网站。快。干净。不套模板。从一次对话开始，五到七天，一个围绕你的网站上线。",
     siteName: "WKALAN",
     images: [
       {
@@ -55,9 +52,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "WKALAN — 品味人生，雕刻身份",
+    title: "WKALAN — 做一个围绕你的网站",
     description:
-      "WKALAN 是一个数字身份工作室。我们品味一个人的人生，然后雕刻出一个数字身份——一个让陌生人走进去，离开时感觉自己认识了一个人的空间。",
+      "帮人做网站。快。干净。不套模板。从一次对话开始，五到七天，一个围绕你的网站上线。",
     images: ["/share-image.jpg"],
   },
   robots: {
@@ -97,7 +94,7 @@ export default function RootLayout({
               url: "https://wkalan.vercel.app",
               image: "https://wkalan.vercel.app/share-image.jpg",
               description:
-                "WKALAN 是一个数字身份工作室。品味人生，雕刻身份——让每一个人在互联网上被真正了解。",
+                "帮人做网站。快。干净。不套模板。从一次对话开始，一个围绕你的网站上线。",
               email: "mailto:hello@wkalan.com",
               sameAs: ["https://www.instagram.com"],
             }),
