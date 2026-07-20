@@ -21,7 +21,7 @@ const tiers = [
 
 export function TheInvitation() {
   return (
-    <section className="bg-[#0F0F0D] py-[var(--space-section-lg)]" id="pricing">
+    <section className="bg-neutral-900 py-[var(--space-section-lg)]" id="pricing">
       <div className="mx-auto max-w-[var(--container-max)] px-[var(--container-padding)]">
         <motion.div
           className="flex flex-col items-center gap-16"
@@ -31,7 +31,7 @@ export function TheInvitation() {
         >
           <div className="flex flex-col items-center gap-4 text-center">
             <motion.span
-              className="text-xs font-medium uppercase tracking-[0.25em] text-[#C9A84C]"
+              className="text-xs font-medium uppercase tracking-[0.2em] text-neutral-400"
               variants={{
                 hidden: { opacity: 0, y: 16 },
                 visible: { opacity: 1, y: 0, transition: { duration: 0.7, ease: [0.16, 1, 0.3, 1] } },
@@ -40,7 +40,7 @@ export function TheInvitation() {
               定价
             </motion.span>
             <motion.h2
-              className="mt-4 font-heading text-[var(--text-h2)] leading-[1.15] tracking-[-0.02em] text-white"
+              className="mt-4 font-bold text-[var(--text-h2)] leading-[1.15] tracking-[-0.02em] text-white"
               variants={{
                 hidden: { opacity: 0, y: 24 },
                 visible: { opacity: 1, y: 0, transition: { duration: 0.8, delay: 0.3, ease: [0.16, 1, 0.3, 1] } },
@@ -49,7 +49,7 @@ export function TheInvitation() {
               简单。透明。
             </motion.h2>
             <motion.p
-              className="mt-2 max-w-md text-sm leading-relaxed text-white/40"
+              className="mt-2 max-w-md text-sm leading-relaxed text-neutral-400"
               variants={{
                 hidden: { opacity: 0, y: 24 },
                 visible: { opacity: 1, y: 0, transition: { duration: 0.8, delay: 0.4, ease: [0.16, 1, 0.3, 1] } },
@@ -64,7 +64,7 @@ export function TheInvitation() {
               <motion.a
                 key={tier.name}
                 href={tier.href}
-                className="group flex flex-col items-center gap-4 border border-white/10 bg-white/[0.03] p-8 text-center transition-all duration-500 hover:border-[#C9A84C]/30 hover:bg-white/[0.06]"
+                className="group flex flex-col items-center gap-4 border border-neutral-800 bg-neutral-800/50 p-8 text-center transition-all duration-500 hover:border-neutral-600 hover:bg-neutral-800"
                 variants={{
                   hidden: { opacity: 0, y: 32 },
                   visible: {
@@ -74,14 +74,14 @@ export function TheInvitation() {
                   },
                 }}
               >
-                <span className="text-xs font-medium uppercase tracking-[0.2em] text-white/50">
+                <span className="text-xs font-medium uppercase tracking-[0.2em] text-neutral-400">
                   {tier.name}
                 </span>
-                <span className="font-heading text-3xl text-[#C9A84C]">{tier.price}</span>
-                <span className="text-xs tracking-[0.15em] text-white/30">{tier.timeline}</span>
-                <p className="text-sm leading-relaxed text-white/50">{tier.desc}</p>
-                <span className="mt-2 inline-flex items-center gap-1 text-xs font-medium uppercase tracking-[0.15em] text-[#C9A84C] transition-all group-hover:gap-2">
-                  预约对话 <span>&rarr;</span>
+                <span className="font-bold text-3xl text-white">{tier.price}</span>
+                <span className="text-xs tracking-[0.15em] text-neutral-500">{tier.timeline}</span>
+                <p className="text-sm leading-relaxed text-neutral-400">{tier.desc}</p>
+                <span className="mt-2 inline-flex items-center gap-1 text-xs font-medium uppercase tracking-[0.15em] text-white transition-all group-hover:gap-2">
+                  预约对话 <span>→</span>
                 </span>
               </motion.a>
             ))}

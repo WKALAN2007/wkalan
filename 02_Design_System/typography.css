@@ -1,30 +1,23 @@
 /* ══════════════════════════════════════════════════════════════
-   WKALAN Typography System
+   WKALAN Typography
 
-   品味人生 — serif for savoring, sans for carving
+   Clean sans-serif. One voice. No serif/sans dichotomy.
    ══════════════════════════════════════════════════════════════ */
 
-/* ── Font Face Declarations ── */
-/* Instrument Serif, Geist, Geist Mono are loaded via next/font in app/layout.tsx */
-
-/* ── Type Utility Classes ── */
-
-/* Display — for hero moments. Serif. Human. */
 .type-display {
   font-family: var(--font-display);
   font-size: var(--text-hero);
   line-height: var(--leading-tight);
   letter-spacing: var(--tracking-tight);
-  font-weight: var(--weight-regular);
+  font-weight: var(--weight-bold);
 }
 
-/* Headings — structured hierarchy */
 .type-h1 {
   font-family: var(--font-display);
   font-size: var(--text-h1);
   line-height: var(--leading-tight);
   letter-spacing: var(--tracking-tight);
-  font-weight: var(--weight-regular);
+  font-weight: var(--weight-bold);
 }
 
 .type-h2 {
@@ -32,156 +25,41 @@
   font-size: var(--text-h2);
   line-height: var(--leading-snug);
   letter-spacing: var(--tracking-tight);
-  font-weight: var(--weight-regular);
+  font-weight: var(--weight-semibold);
 }
 
 .type-h3 {
   font-family: var(--font-body);
   font-size: var(--text-h3);
   line-height: var(--leading-snug);
-  letter-spacing: var(--tracking-normal);
   font-weight: var(--weight-semibold);
 }
 
-.type-h4 {
-  font-family: var(--font-body);
-  font-size: var(--text-h4);
-  line-height: var(--leading-snug);
-  letter-spacing: var(--tracking-normal);
-  font-weight: var(--weight-medium);
-}
-
-/* Body */
 .type-body {
   font-family: var(--font-body);
   font-size: var(--text-body);
   line-height: var(--leading-normal);
-  letter-spacing: var(--tracking-normal);
-  font-weight: var(--weight-regular);
+  color: var(--wk-text-secondary);
 }
 
 .type-body-sm {
   font-family: var(--font-body);
   font-size: var(--text-body-sm);
   line-height: var(--leading-normal);
-  letter-spacing: var(--tracking-normal);
-  font-weight: var(--weight-regular);
+  color: var(--wk-text-secondary);
 }
 
-/* Captions & Labels */
 .type-caption {
   font-family: var(--font-body);
   font-size: var(--text-caption);
-  line-height: var(--leading-normal);
-  letter-spacing: var(--tracking-normal);
-  font-weight: var(--weight-regular);
-  color: var(--color-text-secondary);
+  color: var(--wk-text-tertiary);
 }
 
 .type-label {
   font-family: var(--font-body);
   font-size: var(--text-label);
-  line-height: 1.4;
   letter-spacing: var(--tracking-label);
   font-weight: var(--weight-medium);
   text-transform: uppercase;
-  color: var(--color-text-tertiary);
-}
-
-/* Quote — for blockquotes and manifesto text */
-.type-quote {
-  font-family: var(--font-display);
-  font-size: var(--text-h3);
-  line-height: var(--leading-relaxed);
-  letter-spacing: var(--tracking-tight);
-  font-weight: var(--weight-regular);
-  font-style: italic;
-}
-
-/* Mono — for code, data, technical labels */
-.type-mono {
-  font-family: var(--font-mono);
-  font-size: var(--text-caption);
-  line-height: var(--leading-normal);
-  letter-spacing: 0;
-}
-
-/* ── Reading Container ── */
-.reading-width {
-  max-width: var(--container-narrow);
-}
-
-/* ── Chinese Text Optimization ── */
-[lang="zh"] .type-body,
-[lang="zh-CN"] .type-body {
-  font-size: 1.0625rem;  /* Slightly larger for CJK readability */
-  line-height: var(--leading-relaxed);
-}
-
-[lang="zh"] .type-body-sm,
-[lang="zh-CN"] .type-body-sm {
-  font-size: 0.9375rem;
-  line-height: var(--leading-relaxed);
-}
-
-/* ── Rich Text Styles ── */
-.rich-text h1 {
-  font-family: var(--font-display);
-  font-size: var(--text-h2);
-  line-height: var(--leading-snug);
-  margin-bottom: var(--space-6);
-}
-
-.rich-text h2 {
-  font-family: var(--font-display);
-  font-size: var(--text-h3);
-  line-height: var(--leading-snug);
-  margin-top: var(--space-12);
-  margin-bottom: var(--space-4);
-}
-
-.rich-text h3 {
-  font-family: var(--font-body);
-  font-size: var(--text-h4);
-  font-weight: var(--weight-semibold);
-  margin-top: var(--space-8);
-  margin-bottom: var(--space-3);
-}
-
-.rich-text p {
-  font-family: var(--font-body);
-  font-size: var(--text-body);
-  line-height: var(--leading-relaxed);
-  margin-bottom: var(--space-4);
-  max-width: var(--container-narrow);
-}
-
-.rich-text blockquote {
-  font-family: var(--font-display);
-  font-style: italic;
-  border-left: 2px solid var(--color-accent);
-  padding-left: var(--space-6);
-  margin: var(--space-8) 0;
-  color: var(--color-text-secondary);
-}
-
-.rich-text a {
-  color: var(--color-accent);
-  text-decoration: underline;
-  text-underline-offset: 3px;
-}
-
-.rich-text ul, .rich-text ol {
-  padding-left: var(--space-6);
-  margin-bottom: var(--space-4);
-}
-
-.rich-text li {
-  margin-bottom: var(--space-2);
-  font-size: var(--text-body);
-  line-height: var(--leading-normal);
-}
-
-.rich-text strong {
-  font-weight: var(--weight-semibold);
+  color: var(--wk-text-tertiary);
 }

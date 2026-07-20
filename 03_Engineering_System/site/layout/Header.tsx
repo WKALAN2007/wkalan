@@ -1,92 +1,72 @@
 "use client";
 
-import { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-
-const navLinks = [
-  { label: "作品", href: "#stories" },
-  { label: "流程", href: "#process" },
-  { label: "关于", href: "#origin" },
-];
+import { useState, useCallback } from "react";
 
 export function Header() {
-  const [scrolled, setScrolled] = useState(false);
-  const [visible, setVisible] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
 
-  useEffect(() => {
-    const handleScroll = () => {
-      const heroHeight = window.innerHeight;
-      const scrollY = window.scrollY;
-
-      // Header appears after scrolling past 60% of hero
-      if (scrollY > heroHeight * 0.6) {
-        setVisible(true);
-      } else {
-        setVisible(false);
-      }
-
-      // Background becomes opaque after full hero
-      setScrolled(scrollY > heroHeight * 0.9);
-    };
-
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    handleScroll(); // Check initial state
-    return () => window.removeEventListener("scroll", handleScroll);
+  const toggleMenu = useCallback(() => {
+    setMenuOpen((prev) => !prev);
   }, []);
 
-  const scrollTo = (href: string) => {
-    const el = document.querySelector(href);
-    if (el) {
-      el.scrollIntoView({ behavior: "smooth" });
-    }
-  };
+  const closeMenu = useCallback(() => {
+    setMenuOpen(false);
+  }, []);
 
   return (
-    <AnimatePresence>
-      {visible && (
-        <motion.header
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-          className={`fixed inset-x-0 top-0 z-50 transition-all duration-500 ${
-            scrolled
-              ? "bg-[var(--color-background)]/90 backdrop-blur-xl shadow-[0_1px_0_rgba(0,0,0,0.04)]"
-              : "bg-transparent"
-          }`}
+    <header className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-6 py-4 bg-white/80 backdrop-blur-sm border-b border-neutral-100">
+      <a href="#top" className="text-sm font-semibold text-neutral-900">
+        WKALAN
+      </a>
+
+      <nav className="hidden sm:flex items-center gap-6 text-sm text-neutral-500">
+        <a href="#process" className="hover:text-neutral-900 transition-colors">
+          怎么做
+        </a>
+        <a href="#stories" className="hover:text-neutral-900 transition-colors">
+          案例
+        </a>
+        <a href="#pricing" className="hover:text-neutral-900 transition-colors">
+          定价
+        </a>
+        <a
+          href="mailto:hello@wkalan.com"
+          className="ml-2 inline-flex items-center gap-1.5 rounded-lg bg-neutral-900 px-4 py-2 text-xs font-medium text-white hover:bg-neutral-700 transition-colors"
         >
-          <div className="mx-auto flex h-16 max-w-[var(--container-max)] items-center justify-between px-[var(--container-padding)]">
-            {/* Logo */}
-            <a
-              href="/"
-              className="font-heading text-lg tracking-[-0.02em] text-[var(--color-text-primary)] transition-opacity hover:opacity-60"
-            >
-              WKALAN
-            </a>
+          预约对话
+        </a>
+      </nav>
 
-            {/* Nav */}
-            <nav className="hidden items-center gap-8 sm:flex">
-              {navLinks.map((link) => (
-                <button
-                  key={link.label}
-                  onClick={() => scrollTo(link.href)}
-                  className="text-sm text-[var(--color-text-secondary)] transition-colors hover:text-[var(--color-text-primary)]"
-                >
-                  {link.label}
-                </button>
-              ))}
-            </nav>
+      {/* Mobile menu button */}
+      <button
+        className="sm:hidden text-sm text-neutral-500"
+        onClick={toggleMenu}
+        type="button"
+      >
+        {menuOpen ? "关闭" : "菜单"}
+      </button>
 
-            {/* CTA */}
-            <a
-              href="mailto:hello@wkalan.com"
-              className="text-sm font-medium text-[var(--color-accent)] transition-opacity hover:opacity-70"
-            >
-              开始对话 &rarr;
-            </a>
-          </div>
-        </motion.header>
+      {/* Mobile nav overlay */}
+      {menuOpen && (
+        <div className="fixed inset-0 top-[57px] bg-white z-40 flex flex-col gap-6 p-6 sm:hidden">
+          <a href="#process" onClick={closeMenu} className="text-lg text-neutral-900">
+            怎么做
+          </a>
+          <a href="#stories" onClick={closeMenu} className="text-lg text-neutral-900">
+            案例
+          </a>
+          <a href="#pricing" onClick={closeMenu} className="text-lg text-neutral-900">
+            定价
+          </a>
+          <a
+            href="mailto:hello@wkalan.com"
+            onClick={closeMenu}
+            className="mt-4 inline-flex items-center justify-center rounded-lg bg-neutral-900 px-6 py-3 text-sm font-medium text-white"
+          >
+            预约对话 →
+          </a>
+        </div>
       )}
-    </AnimatePresence>
+    </header>
   );
 }
